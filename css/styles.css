@@ -22,6 +22,11 @@ body { font-family: 'Poppins', sans-serif; color: var(--char); }
 body.home { overflow: hidden; }
 body:not(.home) { overflow: auto; }
 
+/* DESKTOP/LAPTOP ONLY */
+.hamburger {
+  display: none;   /* never show on laptop */
+}
+
 /* ---------- SIDEBAR (consistent on all pages) ---------- */
 .sidebar {
   position: fixed;
@@ -620,6 +625,7 @@ body.contact-page-body {
 .project-track::-webkit-scrollbar-track {
   background: transparent;
 }
+
 
 
 
