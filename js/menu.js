@@ -1,3 +1,4 @@
+console.log("menu.js loaded ✅");
 document.addEventListener("DOMContentLoaded", () => {
   const sidebar = document.querySelector(".sidebar");
   const hamburger = document.querySelector(".hamburger");
