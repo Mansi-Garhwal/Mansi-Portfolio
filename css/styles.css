@@ -105,6 +105,97 @@ body:not(.home) { overflow: auto; }
   transform: scale(1.2);
 }
 
+/* ---------- HORIZONTAL GALLERY (HOME) ---------- */
+/* container covers full viewport but track is transformed */
+.gallery-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* we control movement with transform (no scrollbars) */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* the inner track is translated with JS (translateX) */
+.gallery-track {
+  display: flex;
+  align-items: center;
+  gap: 3px; /* spacing between images */
+  height: 100%;
+  will-change: transform;
+  transform: translate3d(0,0,0);
+}
+
+/* each image is full-height minus 60px total (30px top + 30px bottom) */
+.gallery-track img {
+  height: calc(100vh - 75px);
+  margin: 15px 0;
+  width: auto;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 0px;
+  display: block;
+  user-drag: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* optional visual hint (when user dragging) */
+.gallery-container.dragging { cursor: grabbing; }
+
+/* ---------- GENERAL (other pages) ---------- */
+main.page {
+  padding: 28px;
+  margin-left: calc(var(--sidebar-width) + var(--sidebar-left-offset));
+}
+
+/* For pages other than home — restore vertical scroll */
+body:not(.home) { overflow: auto; }
+
+/* Example card/grid for work page (kept simple) */
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  padding: 24px;
+}
+
+/* project card */
+.project-card {
+  background: #fff;
+  border-radius: 0px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* ABOUT & CONTACT helpers */
+.about-hero {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.about-hero img { width: 220px; height: 220px; object-fit: cover; border-radius: 50%; }
+.bio h1 { 'Poppins', sans-serif;
+  font-size: 2rem;           /* ~32px desktop */
+  line-height: 1.3;
+  font-weight: 600; }
+
+/* contact form */
+.contact-form input, .contact-form textarea,
+.contact-form button {
+  width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ddd;
+}
+
+/* FOOTER */
+footer {
+  padding: 28px;
+  text-align: center;
+  color: #666;
+  margin-top: 30px;
+}
+
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 900px) {
   :root { --sidebar-width: 160px; --sidebar-left-offset: 12px; }
@@ -509,5 +600,6 @@ body.contact-page-body {
 .contact-method a:hover {
   color: var(--accent);
 }
+
 
 
