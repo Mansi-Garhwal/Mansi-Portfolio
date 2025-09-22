@@ -578,7 +578,28 @@ body.contact-page-body {
   color: var(--accent);
 }
 
+/* -------- HORIZONTAL SCROLLBARS -------- */
+.gallery-track,
+.project-track {
+  overflow-x: auto;      /* allow horizontal scroll */
+  overflow-y: hidden;    /* kill vertical */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(0,0,0,0.3) transparent;
+}
 
+/* Chrome / Edge / Safari */
+.gallery-track::-webkit-scrollbar,
+.project-track::-webkit-scrollbar {
+  height: 8px;             /* thickness of scrollbar */
+}
 
+.gallery-track::-webkit-scrollbar-thumb,
+.project-track::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.3);
+  border-radius: 4px;
+}
 
-
+.gallery-track::-webkit-scrollbar-track,
+.project-track::-webkit-scrollbar-track {
+  background: transparent;
+}
