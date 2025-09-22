@@ -109,7 +109,6 @@ body:not(.home) { overflow: auto; }
 /* ---------- HORIZONTAL GALLERY (HOME) ---------- */
 /* container covers full viewport but track is transformed */
 .gallery-container {
-  margin-left: 350px;
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -121,6 +120,7 @@ body:not(.home) { overflow: auto; }
 
 /* the inner track is translated with JS (translateX) */
 .gallery-track {
+  padding-left: 350px;
   display: flex;
   align-items: center;
   gap: 3px; /* spacing between images */
@@ -618,6 +618,7 @@ body.contact-page-body {
 .project-track::-webkit-scrollbar-track {
   background: transparent;
 }
+
 
 
 
