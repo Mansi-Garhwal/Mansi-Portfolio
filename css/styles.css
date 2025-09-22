@@ -121,6 +121,7 @@ body:not(.home) { overflow: auto; }
 
 /* the inner track is translated with JS (translateX) */
 .gallery-track {
+  margin: 37.5px 30px 37.5px 0;
   display: flex;
   align-items: center;
   gap: 3px; /* spacing between images */
@@ -146,13 +147,13 @@ body:not(.home) { overflow: auto; }
 }
 
 .gallery-track img {
-  margin: 15px 0;
   height: calc(100vh - 75px);
   width: auto;
   object-fit: cover;
   flex-shrink: 0;
   border-radius: 0px;
   display: block;
+  box-sizing: border-box;
   user-drag: none;
   user-select: none;
   -webkit-user-drag: none;
@@ -618,6 +619,7 @@ body.contact-page-body {
 .project-track::-webkit-scrollbar-track {
   background: transparent;
 }
+
 
 
 
