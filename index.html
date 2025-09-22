@@ -11,12 +11,12 @@
 
   <aside class="sidebar" aria-label="Main navigation">
     <a href="index.html" class="logo">MANSI GARHWAL</a>
-    <nav class="sidebar-nav" aria-label="Site pages>
+    <nav class="sidebar-nav" aria-label="Site pages">
       <a href="about.html">ABOUT</a>
       <a href="work.html">WORK</a>
       <a href="contact.html">CONTACT</a>
     </nav>
-    
+
    <!-- NEW FOOTER ROWS IN SIDEBAR -->
    <div class="sidebar-footer">
      <p>Get in touch <span class="arrow">→</span></p>
@@ -37,64 +37,6 @@
    </div>
   </aside>
 
-ChatGPT said:
-
-Ahhh 💡 got it MaaLOCA — thanks for clarifying.
-You don’t want a single sidebar structure shared across desktop + mobile.
-Instead:
-
-Desktop/Laptop → your frozen vertical sidebar (with logo, nav links, footer socials).
-
-Mobile → a different layout entirely: top bar with logo + hamburger, dropdown menu when tapped.
-
-That way the hamburger never appears on desktop, and the vertical sidebar never appears on mobile.
-
-✅ Correct Approach
-
-We’ll keep both versions in your HTML, but control which one is shown using CSS (display:none + media queries).
-
-📂 HTML (from <head> to sidebar footer)
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mansi Garhwal | Portfolio</title>
-
-  <!-- Desktop/Laptop CSS -->
-  <link rel="stylesheet" href="css/styles.css">
-
-  <!-- Mobile-only overrides -->
-  <link rel="stylesheet" href="css/mobile.css">
-</head>
-
-<body>
-  <!-- DESKTOP / LAPTOP SIDEBAR -->
-  <aside class="sidebar desktop-sidebar" aria-label="Main navigation">
-    <a href="index.html" class="logo">MANSI GARHWAL</a>
-    <nav class="sidebar-nav" aria-label="Site pages">
-      <a href="about.html">ABOUT</a>
-      <a href="work.html">WORK</a>
-      <a href="contact.html">CONTACT</a>
-    </nav>
-
-    <div class="sidebar-footer">
-      <p>Get in touch <span class="arrow">→</span></p>
-      <div class="sidebar-socials">
-        <a href="https://wa.me/917747008825" target="_blank">
-          <img src="assets/icons/whatsapp.svg" alt="WhatsApp">
-        </a>
-        <a href="https://www.linkedin.com/in/mansi-garhwal-911993232" target="_blank">
-          <img src="assets/icons/linkedin.svg" alt="LinkedIn">
-        </a>
-        <a href="https://instagram.com/maaloca_" target="_blank">
-          <img src="assets/icons/instagram.svg" alt="Instagram">
-        </a>
-        <a href="https://discord.com/users/maaloca" target="_blank">
-          <img src="assets/icons/discord.svg" alt="Discord">
-        </a>
-      </div>
-    </div>
-  </aside>
-
   <!-- MOBILE TOPBAR -->
   <header class="mobile-header">
     <a href="index.html" class="logo">MANSI GARHWAL</a>
@@ -107,7 +49,7 @@ We’ll keep both versions in your HTML, but control which one is shown using CS
     <a href="work.html">WORK</a>
     <a href="contact.html">CONTACT</a>
   </nav>
-  
+
   <!-- Horizontal gallery container (drag/swipe to move) -->
   <main class="gallery-container" aria-hidden="false">
     <div class="gallery-track">
@@ -314,10 +256,5 @@ We’ll keep both versions in your HTML, but control which one is shown using CS
 
   })();
   </script>
-  <!-- JS scripts -->
-  <script src="js/menu.js"></script>
 </body>
 </html>
-</body>
-
-
