@@ -146,7 +146,7 @@ body:not(.home) { overflow: auto; }
 }
 
 .gallery-track img {
-  margin: 37.5px 0;
+  margin: 15px 0;
   height: calc(100vh - 75px);
   width: auto;
   object-fit: cover;
@@ -618,6 +618,7 @@ body.contact-page-body {
 .project-track::-webkit-scrollbar-track {
   background: transparent;
 }
+
 
 
 
