@@ -158,6 +158,11 @@ body:not(.home) { overflow: auto; }
   -webkit-user-drag: none;
 }
 
+.gallery-spacer {
+  flex: 0 0 350px;   /* fixed width = sidebar width + offset */
+  height: 100%;
+}
+
 /* ---------- GENERAL (other pages) ---------- */
 main.page {
   padding: 28px;
@@ -618,6 +623,7 @@ body.contact-page-body {
 .project-track::-webkit-scrollbar-track {
   background: transparent;
 }
+
 
 
 
