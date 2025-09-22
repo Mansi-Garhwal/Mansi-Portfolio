@@ -585,8 +585,8 @@ body.contact-page-body {
 }
 
 .contact-method img {
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
 }
 
 .contact-method p {
@@ -602,5 +602,6 @@ body.contact-page-body {
 .contact-method a:hover {
   color: var(--accent);
 }
+
 
 
