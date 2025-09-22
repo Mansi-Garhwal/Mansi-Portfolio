@@ -97,12 +97,14 @@ body:not(.home) { overflow: auto; }
 }
 
 .sidebar-socials img {
-  width: 30px;
-  height: 30px;
-  transition: transform 0.2s;
+  width: 25px;
+  height: 25px;
+  filter: grayscale(100%) brightness(90%);
+  transition: filter 0.3s ease, transform 0.2s ease;;
 }
 
 .sidebar-socials img:hover {
+  filter: none;
   transform: scale(1.2);
 }
 
@@ -618,6 +620,7 @@ body.contact-page-body {
 .project-track::-webkit-scrollbar-track {
   background: transparent;
 }
+
 
 
 
