@@ -1,5 +1,10 @@
 /* MOBILE ONLY */
 @media (max-width: 768px) {
+  
+  body {
+    overflow: auto !important; /* force scroll allowed */
+  }
+  
   .sidebar {
     position: fixed;
     top: 0;
@@ -183,3 +188,4 @@
     object-fit: contain;
   }
 }
+
