@@ -626,188 +626,52 @@ body.contact-page-body {
   background: transparent;
 }
 
-/* MOBILE ONLY */
+/* =========================== MOBILE OVERRIDES =========================== */
 @media (max-width: 768px) {
+
+  /* Sidebar → hamburger replaces links */
   .sidebar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    flex-direction: row;
+    top: 0; left: 0;
+    width: 100%; height: auto;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px 16px;
     background: rgba(255,255,255,0.9);
-    backdrop-filter: blur(6px);
-    z-index: 2000;
+    backdrop-filter: blur(8px);
   }
 
-  .logo {
-    font-size: 1rem;
+  .sidebar-nav, .sidebar-footer {
+    display: none;  /* hidden until hamburger opens them */
   }
 
-  /* Hamburger visible only on mobile */
-  .hamburger {
-    display: block;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  /* Hide nav + socials until menu is opened */
-  .sidebar-nav,
-  .sidebar-footer {
-    display: none;
-  }
-
-  /* When sidebar has .open class → show nav + socials stacked */
   .sidebar.open .sidebar-nav,
   .sidebar.open .sidebar-footer {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    padding: 12px;
-    background: rgba(255,255,255,0.95);
-    margin-top: 10px;
+    margin-top: 12px;
   }
-}
 
-/* MOBILE ONLY: HOME gallery vertical */
-@media (max-width: 768px) {
+  .hamburger { display: block; font-size: 1.5rem; cursor: pointer; }
+
+  /* HOME → vertical gallery */
   .gallery-container {
-    overflow-x: hidden;   /* disable horizontal scroll */
-    overflow-y: auto;     /* enable vertical scroll */
-    height: auto;         /* allow height to expand with content */
-  }
-
-  .gallery-track {
-    flex-direction: column;  /* stack images vertically */
-    padding-left: 0;         /* remove sidebar offset */
-    gap: 15px;               /* space between images */
-  }
-
-  .gallery-track img {
-    width: 100%;   /* full width on mobile */
-    height: auto;  /* auto height */
-    margin: 0;     /* remove top/bottom margins */
-    object-fit: cover;
-  }
-}
-
-/* ===== ABOUT PAGE (mobile renamed rows) ===== */
-@media (max-width: 768px) {
-  .about-grid {
-    grid-template-columns: 1fr;   /* 1 column only */
-    gap: 30px;                   /* space between rows */
-    margin-left: 0;
-    padding: 20px;
-  }
-
-  /* Row 1 → Self introduction + photo */
-  .a1, .a2 {
-    grid-column: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  /* Row 2 → Experiences + Education */
-  .b1, .b2 {
-    grid-column: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  /* Row 3 → Skills */
-  .c1, .c2 {
-    grid-column: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  /* Row 4 → Trainers */
-  .d1, .d2 {
-    grid-column: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  /* Portrait smaller */
-  .a2 img {
-    width: 70%;
+    overflow-x: hidden;
+    overflow-y: auto;
     height: auto;
   }
-}
+  .gallery-track { flex-direction: column; gap: 15px; }
+  .gallery-track img { width: 100%; height: auto; }
 
-/* ===== WORK PAGE (mobile) ===== */
-@media (max-width: 768px) {
-  .project-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    padding: 20px;
-  }
+  /* ABOUT → 1 column */
+  .about-grid { grid-template-columns: 1fr; gap: 30px; margin-left: 0; padding: 20px; }
 
-  .project-title {
-    font-size: 0.8rem;
-    text-align: center; /* optional */
-  }
-}
+  /* WORK → 2 columns */
+  .project-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 20px; }
 
-/* ===== CONTACT PAGE (mobile) ===== */
-@media (max-width: 768px) {
-  .contact-page {
-    flex-direction: column;
-    margin-left: 0;
-    padding: 20px;
-    height: auto;
-  }
-
-  /* Row 1: icons + links */
-  .contact-right {
-    order: 1;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .contact-method {
-    flex-direction: row;   /* icon beside link */
-    align-items: center;
-    gap: 8px;
-  }
-
-  .contact-method img {
-    width: 20px;
-    height: 20px;
-  }
-
-  .contact-method p {
-    margin: 0;
-    font-size: 0.85rem;
-  }
-
-  /* Row 2: hero image */
-  .contact-left {
-    order: 2;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-
-  .contact-hero {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
+  /* CONTACT → stack rows */
+  .contact-page { flex-direction: column; margin-left: 0; padding: 20px; height: auto; }
+  .contact-right { order: 1; margin-bottom: 20px; }
+  .contact-left { order: 2; width: 100%; }
 }
