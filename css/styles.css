@@ -101,7 +101,6 @@ body {
 .sidebar-socials img {
   width: 30px;
   height: 30px;
-  transition: transform 0.2s;
 }
 
 .sidebar-socials img:hover {
@@ -603,4 +602,5 @@ body.contact-page-body {
 .contact-method a:hover {
   color: var(--accent);
 }
+
 
