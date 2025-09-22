@@ -18,11 +18,9 @@
 html,body { height: 100%; }
 
 /* BODY: no HOME background color here (kept neutral) */
-body {
-  font-family: 'Poppins', sans-serif;
-  color: var(--char);
-  overflow: hidden; /* HOME only; other pages will override to allow vertical scroll */
-}
+body { font-family: 'Poppins', sans-serif; color: var(--char); }
+body.home { overflow: hidden; }
+body:not(.home) { overflow: auto; }
 
 /* ---------- SIDEBAR (consistent on all pages) ---------- */
 .sidebar {
@@ -602,3 +600,4 @@ body.contact-page-body {
 .contact-method a:hover {
   color: var(--accent);
 }
+
