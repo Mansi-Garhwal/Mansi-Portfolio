@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (hamburger) {
     hamburger.addEventListener("click", () => {
       sidebar.classList.toggle("open");
+      console.log("hamburger clicked"); // debug log
     });
   }
 });
+
