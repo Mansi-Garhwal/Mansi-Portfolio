@@ -120,7 +120,6 @@ body:not(.home) { overflow: auto; }
 
 /* the inner track is translated with JS (translateX) */
 .gallery-track {
-  margin-left: 350px;
   margin: 37.5px 30px 37.5px 0;
   display: flex;
   align-items: center;
@@ -147,6 +146,7 @@ body:not(.home) { overflow: auto; }
 }
 
 .gallery-track img {
+  margin-left: 350px;
   height: calc(100vh - 75px);
   width: auto;
   object-fit: cover;
@@ -619,6 +619,7 @@ body.contact-page-body {
 .project-track::-webkit-scrollbar-track {
   background: transparent;
 }
+
 
 
 
