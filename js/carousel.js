@@ -1,29 +1,23 @@
-const slides = document.querySelectorAll(".slide");
-let current = 0;
-let autoPlayInterval;
+// carousel.js
+document.addEventListener("DOMContentLoaded", () => {
+  const tracks = document.querySelectorAll(".gallery-track, .project-track");
 
-function showSlide(index) {
-  slides.forEach((s, i) => s.classList.toggle("active", i === index));
-}
+  tracks.forEach(track => {
+    let startX = 0, scrollLeft = 0, isDown = false;
 
-function nextSlide() {
-  current = (current + 1) % slides.length;
-  showSlide(current);
-}
-function prevSlide() {
-  current = (current - 1 + slides.length) % slides.length;
-  showSlide(current);
-}
+    track.addEventListener("touchstart", (e) => {
+      isDown = true;
+      startX = e.touches[0].pageX;
+      scrollLeft = track.scrollLeft;
+    }, { passive: true });
 
-const nextBtn = document.querySelector(".next");
-const prevBtn = document.querySelector(".prev");
-if (nextBtn) nextBtn.addEventListener("click", () => { nextSlide(); resetAutoPlay(); });
-if (prevBtn) prevBtn.addEventListener("click", () => { prevSlide(); resetAutoPlay(); });
+    track.addEventListener("touchmove", (e) => {
+      if (!isDown) return;
+      const x = e.touches[0].pageX;
+      const walk = startX - x;
+      track.scrollLeft = scrollLeft + walk;
+    }, { passive: true });
 
-function startAutoPlay() { autoPlayInterval = setInterval(nextSlide, 5000); }
-function resetAutoPlay() { clearInterval(autoPlayInterval); startAutoPlay(); }
-
-if (slides.length > 0) {
-  showSlide(current);
-  startAutoPlay();
-}
+    track.addEventListener("touchend", () => { isDown = false; });
+  });
+});
