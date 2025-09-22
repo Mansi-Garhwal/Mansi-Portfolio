@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mansi Garhwal — Home</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <aside class="sidebar" aria-label="Main navigation">
+    <a href="index.html" class="logo">MANSI GARHWAL</a>
+    <nav class="sidebar-nav" aria-label="Site pages">
+      <a href="about.html">ABOUT</a>
+      <a href="work.html">WORK</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+
+   <!-- NEW FOOTER ROWS IN SIDEBAR -->
+   <div class="sidebar-footer">
+     <p>Get in touch <span class="arrow">→</span></p>
+     <div class="sidebar-socials">
+       <a href="https://wa.me/917747008825" target="_blank">
+         <img src="assets/icons/whatsapp.svg" alt="">
+       </a>
+       <a href="https://www.linkedin.com/in/your-linkedin-id" target="_blank">
+         <img src="assets/icons/linkedin.svg" alt="">
+       </a>
+       <a href="https://instagram.com/your-instagram-id" target="_blank">
+         <img src="assets/icons/instagram.svg" alt="">
+       </a>
+       <a href="https://discord.com/users/maaloca" target="_blank">
+         <img src="assets/icons/discord.svg" alt="">
+       </a>
+     </div>
+   </div>
+  </aside>
+
+  <!-- Horizontal gallery container (drag/swipe to move) -->
+  <main class="gallery-container" aria-hidden="false">
+    <div class="gallery-track">
+      <!-- 8 images; make sure these files exist in assets/home-images/ -->
+      <img src="assets/home-images/home-1.jpg" alt="Project 1">
+      <img src="assets/home-images/home-2.jpg" alt="Project 2">
+      <img src="assets/home-images/home-3.jpg" alt="Project 3">
+      <img src="assets/home-images/home-4.jpg" alt="Project 4">
+      <img src="assets/home-images/home-5.jpg" alt="Project 5">
+      <img src="assets/home-images/home-6.jpg" alt="Project 6">
+      <img src="assets/home-images/home-7.jpg" alt="Project 7">
+      <img src="assets/home-images/home-8.jpg" alt="Project 8">
+    </div>
+  </main>
+
+  <!-- JS: draggable horizontal gallery with momentum/inertia -->
+  <script>
+  (function () {
+    const sidebar = document.querySelector('.sidebar');
+    const container = document.querySelector('.gallery-container');
+    const track = document.querySelector('.gallery-track');
+    const imgs = Array.from(track.querySelectorAll('img'));
+
+    // read computed sidebar position/width and compute initial offset
+    function getInitialOffset() {
+      const sbRect = sidebar.getBoundingClientRect();
+      const initialGap = 30; // 30px gap after sidebar
+      return Math.round(sbRect.left + sbRect.width + initialGap);
+    }
+
+    let viewportW = window.innerWidth;
+    let trackW = 0;
+    let minTranslate = 0;
+    let maxTranslate = 0; // this will be initialOffset
+    let currentX = 0;     // transform translateX (px)
+    let isDown = false;
+    let startX = 0;
+    let prevX = 0;
+    let velocity = 0;
+    let lastTime = 0;
+    let rafId = null;
+
+    // compute sizes and bounds
+    function recalc() {
+      viewportW = window.innerWidth;
+      trackW = track.scrollWidth; // total width of all images + gaps
+      maxTranslate = getInitialOffset();
+      // minTranslate so the end of track lines up with right edge of viewport
+      minTranslate = Math.min(viewportW - trackW - 30, viewportW - trackW); // slightly allow padding
+      // if track smaller than viewport allow small left/right movement
+      if (trackW <= viewportW) {
+        minTranslate = Math.min(0, viewportW - trackW - 30);
+      }
+      // clamp currentX into bounds
+      currentX = Math.max(Math.min(currentX, maxTranslate), minTranslate);
+      setTranslate(currentX);
+    }
+
+    // set transform
+    function setTranslate(x) {
+      track.style.transform = `translate3d(${x}px,0,0)`;
+    }
+
+    // init starting position (first image 30px right of sidebar)
+    function init() {
+      currentX = getInitialOffset();
+      recalc();
+    }
+
+    // pointer handlers (works for mouse & touch)
+    function onPointerDown(e) {
+      isDown = true;
+      startX = e.clientX;
+      prevX = startX;
+      lastTime = performance.now();
+      // stop inertia anim if running
+      if (rafId) cancelAnimationFrame(rafId);
+      container.classList.add('dragging');
+      track.style.transition = 'none';
+      // prevent image drag
+      e.target && e.target.setPointerCapture && e.target.setPointerCapture(e.pointerId);
+    }
+
+    function onPointerMove(e) {
+      if (!isDown) return;
+      const x = e.clientX;
+      const dx = x - startX;
+      const now = performance.now();
+      const dt = Math.max(now - lastTime, 1);
+      // compute velocity (px per ms)
+      velocity = (x - prevX) / dt;
+      prevX = x;
+      lastTime = now;
+
+      let next = currentX + dx;
+      // clamp softly (allow slight overscroll)
+      const overDrag = 120;
+      if (next > maxTranslate + overDrag) next = maxTranslate + overDrag;
+      if (next < minTranslate - overDrag) next = minTranslate - overDrag;
+
+      setTranslate(next);
+    }
+
+    function onPointerUp(e) {
+      if (!isDown) return;
+      // finalize dragging: compute final movement using last velocity
+      isDown = false;
+      container.classList.remove('dragging');
+      // estimate final position using velocity (px/ms) and friction
+      // Convert to px/frame by multiplying by 16ms, then apply inertia
+      let v = velocity * 16; // approximate px per frame
+      // clamp v to reasonable bounds
+      if (Math.abs(v) < 0.2) v = 0;
+      // set currentX to where the track is now (read transform)
+      const style = window.getComputedStyle(track);
+      const matrix = new WebKitCSSMatrix(style.transform);
+      currentX = matrix.m41 || 0;
+
+      // inertia animation loop
+      function inertia() {
+        // friction
+        v *= 0.95;
+        currentX += v;
+        // clamp into bounds
+        if (currentX > maxTranslate) {
+          // ease back
+          currentX = currentX - (currentX - maxTranslate) * 0.25;
+          v = 0;
+        }
+        if (currentX < minTranslate) {
+          currentX = currentX - (currentX - minTranslate) * 0.25;
+          v = 0;
+        }
+        setTranslate(currentX);
+        // stop when velocity nearly zero
+        if (Math.abs(v) > 0.3) {
+          rafId = requestAnimationFrame(inertia);
+        } else {
+          // finalize with slight smoothing
+          track.style.transition = 'transform 260ms cubic-bezier(.2,.9,.3,1)';
+          // clamp final
+          currentX = Math.max(Math.min(currentX, maxTranslate), minTranslate);
+          setTranslate(currentX);
+          rafId = null;
+        }
+      }
+      if (Math.abs(v) > 0.3) {
+        rafId = requestAnimationFrame(inertia);
+      } else {
+        // small snap back if slightly overscrolled
+        track.style.transition = 'transform 260ms cubic-bezier(.2,.9,.3,1)';
+        currentX = Math.max(Math.min(currentX, maxTranslate), minTranslate);
+        setTranslate(currentX);
+      }
+      // reset velocity
+      velocity = 0;
+    }
+
+    // prevent default image dragging
+    imgs.forEach(img => {
+      img.addEventListener('dragstart', e => e.preventDefault());
+    });
+
+    // attach pointer handlers on track
+    track.addEventListener('pointerdown', onPointerDown);
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('pointerup', onPointerUp);
+    window.addEventListener('pointercancel', onPointerUp);
+
+    // also support horizontal wheel as an optional, but only when user uses a horizontal scroll gesture:
+    // (we DO NOT translate vertical wheel to horizontal — only horizontal wheel events)
+    container.addEventListener('wheel', (e) => {
+      // if it's a horizontal scroll (deltaX significant), apply it
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        e.preventDefault();
+        currentX = currentX - e.deltaX;
+        // clamp
+        currentX = Math.max(Math.min(currentX, maxTranslate), minTranslate);
+        track.style.transition = 'transform 120ms linear';
+        setTranslate(currentX);
+      }
+    }, { passive: false });
+
+    // recompute bounds on resize
+    window.addEventListener('resize', () => {
+      // cancel any inertia
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      track.style.transition = 'none';
+      recalc();
+    });
+
+    // initialize after images loaded (so scrollWidth is correct)
+    function waitImagesThenInit() {
+      const imagePromises = imgs.map(img => {
+        if (img.complete) return Promise.resolve();
+        return new Promise(resolve => { img.onload = img.onerror = resolve; });
+      });
+      Promise.all(imagePromises).then(() => {
+        init();
+      });
+    }
+
+    waitImagesThenInit();
+
+  })();
+  </script>
+</body>
+</html>
