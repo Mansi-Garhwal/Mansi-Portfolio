@@ -149,9 +149,6 @@ main.page {
   margin-left: calc(var(--sidebar-width) + var(--sidebar-left-offset));
 }
 
-/* For pages other than home — restore vertical scroll */
-body:not(.home) { overflow: auto; }
-
 /* Example card/grid for work page (kept simple) */
 .grid {
   display: grid;
@@ -580,6 +577,7 @@ body.contact-page-body {
 .contact-method a:hover {
   color: var(--accent);
 }
+
 
 
 
