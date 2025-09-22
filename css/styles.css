@@ -627,7 +627,7 @@ body.contact-page-body {
 }
 
 /* =========================== MOBILE OVERRIDES =========================== */
-@media (max-width: 420px) {
+@media (max-width: 500px) {
   /* body: allow vertical scroll only */
   body {
     overflow-x: hidden !important;
@@ -716,4 +716,3 @@ body.contact-page-body {
     height: auto !important;
   }
 }
-
