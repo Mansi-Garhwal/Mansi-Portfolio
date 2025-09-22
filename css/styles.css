@@ -153,7 +153,6 @@ body:not(.home) { overflow: auto; }
   flex-shrink: 0;
   border-radius: 0px;
   display: block;
-  box-sizing: border-box;
   user-drag: none;
   user-select: none;
   -webkit-user-drag: none;
@@ -619,6 +618,7 @@ body.contact-page-body {
 .project-track::-webkit-scrollbar-track {
   background: transparent;
 }
+
 
 
 
