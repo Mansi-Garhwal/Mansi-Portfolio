@@ -67,3 +67,89 @@
     object-fit: cover;
   }
 }
+
+/* ===== ABOUT PAGE (mobile) ===== */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;   /* 1 column only */
+    gap: 30px;                   /* row spacing */
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .about-grid > .grid-item {
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Portrait image smaller */
+  .a2 img {
+    width: 70%;
+    height: auto;
+  }
+}
+
+/* ===== WORK PAGE (mobile) ===== */
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .project-title {
+    font-size: 0.8rem;
+    text-align: center; /* optional for mobile */
+  }
+}
+
+/* ===== CONTACT PAGE (mobile) ===== */
+@media (max-width: 768px) {
+  .contact-page {
+    flex-direction: column;
+    margin-left: 0;
+    padding: 20px;
+    height: auto; /* allow content to grow */
+  }
+
+  /* Row 1: icons + links */
+  .contact-right {
+    order: 1;
+    margin: 0 0 20px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* icon + link left aligned */
+    gap: 10px;
+  }
+
+  .contact-method {
+    flex-direction: row;  /* icon beside link */
+    gap: 8px;
+    align-items: center;
+  }
+
+  .contact-method img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contact-method p {
+    margin: 0;
+    font-size: 0.85rem;
+  }
+
+  /* Row 2: hero image */
+  .contact-left {
+    order: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .contact-hero {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
