@@ -45,3 +45,25 @@
     margin-top: 10px;
   }
 }
+
+/* MOBILE ONLY: HOME gallery vertical */
+@media (max-width: 768px) {
+  .gallery-container {
+    overflow-x: hidden;   /* disable horizontal scroll */
+    overflow-y: auto;     /* enable vertical scroll */
+    height: auto;         /* allow height to expand with content */
+  }
+
+  .gallery-track {
+    flex-direction: column;  /* stack images vertically */
+    padding-left: 0;         /* remove sidebar offset */
+    gap: 15px;               /* space between images */
+  }
+
+  .gallery-track img {
+    width: 100%;   /* full width on mobile */
+    height: auto;  /* auto height */
+    margin: 0;     /* remove top/bottom margins */
+    object-fit: cover;
+  }
+}
