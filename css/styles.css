@@ -710,11 +710,25 @@ body.contact-page-body {
   p, .proj-meta { font-size: 0.9rem; }
 }
 
-/* ----- MOBILE NAV ----- */
+/* ----- Mobile Nav ----- */
 @media (max-width: 600px) {
-  .sidebar-nav {
-    display: none; /* hide desktop nav */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
   }
+
+  .sidebar-nav { display: none; }       /* hide desktop nav */
+  .sidebar-footer { display: none; }    /* hide socials in sidebar on mobile */
 
   .menu-toggle {
     font-size: 1.5rem;
@@ -722,13 +736,12 @@ body.contact-page-body {
     border: none;
     cursor: pointer;
     color: var(--char);
-    z-index: 2500;
   }
 
   .mobile-nav {
     display: none;
     position: absolute;
-    top: 60px;         /* just below top bar */
+    top: 60px; /* just under the top bar */
     left: 0;
     width: 100%;
     background: rgba(255,255,255,0.95);
@@ -737,7 +750,7 @@ body.contact-page-body {
     align-items: center;
     gap: 15px;
     padding: 16px 0;
-    z-index: 2000;
+    z-index: 1500;
   }
 
   .mobile-nav a {
@@ -745,13 +758,9 @@ body.contact-page-body {
     font-size: 1rem;
     text-decoration: none;
   }
-
   .mobile-nav a:hover {
     color: var(--accent);
   }
 
-  /* Show menu when active */
-  .mobile-nav.active {
-    display: flex;
-  }
+  .mobile-nav.active { display: flex; } /* show when toggled */
 }
