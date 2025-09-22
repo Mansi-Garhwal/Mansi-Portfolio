@@ -196,26 +196,6 @@ footer {
   margin-top: 30px;
 }
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 900px) {
-  :root { --sidebar-width: 160px; --sidebar-left-offset: 12px; }
-  .sidebar { left: var(--sidebar-left-offset); width: var(--sidebar-width); padding: 20px; }
-  .sidebar .logo { font-size: 1.1rem; }
-  .gallery-track img { height: calc(100vh - 50px); margin: 25px 0; }
-}
-
-@media (max-width: 480px) {
-  /* On small screens we stack the sidebar on top and allow normal vertical scroll on other pages */
-  .sidebar {
-    position: fixed; top: 12px; left: 12px;
-    width: calc(100% - 24px); height: auto; border-radius: 10px;
-    display: flex; flex-direction: row; align-items: center; justify-content: space-between;
-    padding: 12px 16px;
-  }
-  .sidebar-nav { flex-direction: row; gap: 10px; }
-  .gallery-track img { height: calc(60vh - 40px); margin: 12px 0; }
-}
-
 /* ---------- ABOUT GRID (previous correct version) ---------- */
 .about-grid {
   display: grid;
@@ -600,6 +580,7 @@ body.contact-page-body {
 .contact-method a:hover {
   color: var(--accent);
 }
+
 
 
 
