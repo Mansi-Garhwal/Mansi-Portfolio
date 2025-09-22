@@ -108,12 +108,12 @@ body:not(.home) { overflow: auto; }
 /* ---------- HORIZONTAL GALLERY (HOME) ---------- */
 /* container covers full viewport but track is transformed */
 .gallery-container {
+  margin-left: 350px;
   position: relative;
   height: 100vh;
   width: 100vw;
-  overflow: hidden; /* we control movement with transform (no scrollbars) */
-  -webkit-user-select: none;
-  user-select: none;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 /* the inner track is translated with JS (translateX) */
@@ -135,9 +135,6 @@ body:not(.home) { overflow: auto; }
   flex-shrink: 0;
   border-radius: 0px;
   display: block;
-  user-drag: none;
-  user-select: none;
-  -webkit-user-drag: none;
 }
 
 /* optional visual hint (when user dragging) */
@@ -603,3 +600,4 @@ body.contact-page-body {
 .project-track::-webkit-scrollbar-track {
   background: transparent;
 }
+
