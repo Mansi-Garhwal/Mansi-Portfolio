@@ -97,8 +97,8 @@ body:not(.home) { overflow: auto; }
 }
 
 .sidebar-socials img {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   filter: grayscale(100%) brightness(90%);
   transition: filter 0.3s ease, transform 0.2s ease;;
 }
@@ -620,6 +620,7 @@ body.contact-page-body {
 .project-track::-webkit-scrollbar-track {
   background: transparent;
 }
+
 
 
 
