@@ -20,16 +20,20 @@
     z-index: 2000;
   }
 
-  /* Hide desktop nav + socials */
-  .sidebar-nav { display: none; }
-  .sidebar-footer { display: none; }
+  /* Hide desktop nav + socials on mobile */
+  .sidebar-nav {
+    display: none !important;
+  }
+  .sidebar-footer {
+    display: none !important;
+  }
 
   /* Logo smaller */
   .sidebar .logo {
     font-size: 1.2rem;
   }
 
-  /* Hamburger */
+  /* Hamburger button */
   .menu-toggle {
     font-size: 1.5rem;
     background: none;
@@ -41,9 +45,9 @@
 
   /* Mobile nav (dropdown) */
   .mobile-nav {
-    display: none;
+    display: none; /* hidden by default */
     position: absolute;
-    top: 60px; /* below top bar */
+    top: 60px; /* just below top bar */
     left: 0;
     width: 100%;
     background: rgba(255,255,255,0.95);
@@ -62,9 +66,11 @@
   .mobile-nav a:hover {
     color: var(--accent);
   }
-  .mobile-nav.active { display: flex; }
+  .mobile-nav.active {
+    display: flex !important;
+  }
 
-  /* HOME: smaller images */
+  /* HOME images smaller */
   .gallery-track img {
     height: 60vh;
     margin: 10px 0;
@@ -88,7 +94,7 @@
     text-align: center;
   }
 
-  /* CONTACT: stack columns */
+  /* CONTACT: stacked layout */
   .contact-page {
     flex-direction: column;
     margin-left: 0;
@@ -106,7 +112,7 @@
     height: auto;
   }
 
-  /* PROJECT: vertical stacking */
+  /* PROJECT page: vertical panels */
   .project-page {
     margin: 80px 16px 16px 16px;
     height: auto;
@@ -129,7 +135,7 @@
     margin: 0;
   }
 
-  /* Typography scale */
+  /* Typography scaling */
   h1, .proj-title { font-size: 1.5rem; }
   h2, h3 { font-size: 1.2rem; }
   p, .proj-meta { font-size: 0.9rem; }
