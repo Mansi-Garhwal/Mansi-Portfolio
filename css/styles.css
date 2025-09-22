@@ -109,7 +109,7 @@ body:not(.home) { overflow: auto; }
 /* ---------- HORIZONTAL GALLERY (HOME) ---------- */
 /* container covers full viewport but track is transformed */
 .gallery-container {
-  margin: 37.5px 30px 37.5px 350px;
+  margin-left: 350px;
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -131,6 +131,7 @@ body:not(.home) { overflow: auto; }
 
 /* each image is full-height minus 60px total (30px top + 30px bottom) */
 .gallery-track img {
+  margin: 37.5px 30px 37.5px 0;
   height: calc(100vh - 75px);
   width: auto;
   object-fit: cover;
@@ -602,6 +603,7 @@ body.contact-page-body {
 .project-track::-webkit-scrollbar-track {
   background: transparent;
 }
+
 
 
 
