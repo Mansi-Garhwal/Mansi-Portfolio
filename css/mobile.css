@@ -1,53 +1,41 @@
-/* -----------------------------------------------------------
-   mobile.css — only for small screens (≤600px)
-   ----------------------------------------------------------- */
-
 @media (max-width: 600px) {
+  /* Hide desktop sidebar completely */
+  .desktop-sidebar {
+    display: none !important;
+  }
 
-  /* Sidebar becomes a top bar */
-  .sidebar {
+  /* Show mobile header */
+  .mobile-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: auto;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 16px;
     background: rgba(255,255,255,0.85);
     backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
     z-index: 2000;
   }
 
-  /* Hide desktop nav + socials on mobile */
-  .sidebar-nav {
-    display: none !important;
-  }
-  .sidebar-footer {
-    display: none !important;
-  }
-
-  /* Logo smaller */
-  .sidebar .logo {
+  .mobile-header .logo {
     font-size: 1.2rem;
   }
 
-  /* Hamburger button */
   .menu-toggle {
     font-size: 1.5rem;
     background: none;
     border: none;
     cursor: pointer;
     color: var(--char);
-    z-index: 2500;
   }
 
-  /* Mobile nav (dropdown) */
+  /* Mobile dropdown nav */
   .mobile-nav {
-    display: none; /* hidden by default */
+    display: none;
     position: absolute;
-    top: 60px; /* just below top bar */
+    top: 60px;
     left: 0;
     width: 100%;
     background: rgba(255,255,255,0.95);
@@ -58,85 +46,26 @@
     padding: 16px 0;
     z-index: 1500;
   }
+
   .mobile-nav a {
     color: var(--char);
     font-size: 1rem;
     text-decoration: none;
   }
+
   .mobile-nav a:hover {
     color: var(--accent);
   }
+
   .mobile-nav.active {
-    display: flex !important;
+    display: flex;
   }
+}
 
-  /* HOME images smaller */
-  .gallery-track img {
-    height: 60vh;
-    margin: 10px 0;
+/* On desktop/laptop → hide mobile elements */
+@media (min-width: 601px) {
+  .mobile-header,
+  .mobile-nav {
+    display: none !important;
   }
-
-  /* WORK: 2 per row */
-  .project-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-
-  /* ABOUT: single column */
-  .about-grid {
-    margin-left: 0;
-    padding: 80px 16px 16px 16px; /* space for top bar */
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .about-grid > .grid-item {
-    align-items: center;
-    text-align: center;
-  }
-
-  /* CONTACT: stacked layout */
-  .contact-page {
-    flex-direction: column;
-    margin-left: 0;
-    padding: 80px 16px 16px 16px;
-    height: auto;
-    gap: 20px;
-  }
-  .contact-left, .contact-right {
-    flex: none;
-    width: 100%;
-    justify-content: center;
-  }
-  .contact-hero {
-    width: 100%;
-    height: auto;
-  }
-
-  /* PROJECT page: vertical panels */
-  .project-page {
-    margin: 80px 16px 16px 16px;
-    height: auto;
-    overflow-y: auto;
-  }
-  .project-track {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .panel-text {
-    width: 100% !important;
-    padding: 16px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  .panel-image img {
-    width: 100%;
-    height: auto;
-    margin: 0;
-  }
-
-  /* Typography scaling */
-  h1, .proj-title { font-size: 1.5rem; }
-  h2, h3 { font-size: 1.2rem; }
-  p, .proj-meta { font-size: 0.9rem; }
 }
