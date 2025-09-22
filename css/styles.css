@@ -127,9 +127,24 @@ body:not(.home) { overflow: auto; }
   height: 100%;
   will-change: transform;
   transform: translate3d(0,0,0);
+  /* scrollbar */
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.3) transparent;
 }
 
-/* each image is full-height minus 60px total (30px top + 30px bottom) */
+.gallery-track::-webkit-scrollbar {
+  height: 8px;
+}
+.gallery-track::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.3);
+  border-radius: 4px;
+}
+.gallery-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 .gallery-track img {
   margin: 37.5px 30px 37.5px 0;
   height: calc(100vh - 75px);
@@ -138,10 +153,10 @@ body:not(.home) { overflow: auto; }
   flex-shrink: 0;
   border-radius: 0px;
   display: block;
+  user-drag: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
-
-/* optional visual hint (when user dragging) */
-.gallery-container.dragging { cursor: grabbing; }
 
 /* ---------- GENERAL (other pages) ---------- */
 main.page {
@@ -603,6 +618,7 @@ body.contact-page-body {
 .project-track::-webkit-scrollbar-track {
   background: transparent;
 }
+
 
 
 
