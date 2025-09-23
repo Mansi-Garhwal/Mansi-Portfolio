@@ -725,6 +725,7 @@ body.contact-page-body {
     gap: 15px;
     width: 100%;
     height: auto;
+    margin-left: 0;
     align-items: center;  /* center images horizontally */
   }
 
@@ -732,7 +733,9 @@ body.contact-page-body {
     width: 100% !important;   /* fill screen width */
     height: auto !important;
     margin: 0 !important;
+    margin-left: 0;
     object-fit: cover;
   }
 }
+
 
