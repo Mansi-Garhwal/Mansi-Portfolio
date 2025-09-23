@@ -810,7 +810,10 @@ body.contact-page-body {
 
   /* ---------- CONTACT PAGE ---------- */
   .contact-page {
-    margin: 80px 16px 40px 16px;
+    margin-top: 80px; /* push content below logo+hamburger bar */
+    margin-left: 0;
+    margin-right: 0;
+    padding: 20px 16px;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -818,10 +821,14 @@ body.contact-page-body {
 
   .contact-left {
     order: 2; /* image below */
+    width: 100%;
   }
+  
   .contact-hero {
     width: 100%;
     height: auto;
+    object-fit: contain; /* keeps proportions */
+    border-radius: 0;
   }
 
   .contact-right {
@@ -847,6 +854,9 @@ body.contact-page-body {
     margin: 0;
     font-size: 0.9rem;
     text-align: left;
+    text-decoration: none;   /* remove underline */
+    color: var(--char);      /* look like plain text */
   }
 }
+
 
