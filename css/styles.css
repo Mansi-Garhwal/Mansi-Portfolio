@@ -689,7 +689,6 @@ body.contact-page-body {
   .sidebar.open {
     height: 100vh;
     justify-content: flex-start;
-    padding-top: 80px;
   }
 
   .sidebar.open .sidebar-nav {
@@ -850,6 +849,7 @@ body.contact-page-body {
     text-align: left;
   }
 }
+
 
 
 
