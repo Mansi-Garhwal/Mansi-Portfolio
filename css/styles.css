@@ -630,7 +630,7 @@ body.contact-page-body {
 }
          
 /* =========================== MOBILE OVERRIDES =========================== */
-@media (max-width: 768px) {
+@media (min-width: 1px; max-width: 768px) {
   /* body: allow vertical scroll only */
   body {
     overflow-x: hidden !important;
@@ -740,3 +740,4 @@ body.contact-page-body {
     object-fit: cover;
   }
 }
+
