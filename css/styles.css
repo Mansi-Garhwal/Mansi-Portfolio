@@ -642,18 +642,13 @@ body.contact-page-body {
   /* Sidebar top-bar style */
   .sidebar {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     height: 60px;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(6px);
     display: flex;
-    flex-director: column;
     justify-content: space-between;
     align-items: center;
+    background: rgba(255,255,255,0.95);
     padding: 0 16px;
-    z-index: 2000;
   }
 
   .sidebar-top {
@@ -726,18 +721,10 @@ body.contact-page-body {
     display: flex;
     flex-direction: column !important;  /* stack images vertically */
     gap: 15px;
-    width: 100%;
-    height: auto;
-    margin-left: 0;
-    align-items: center;  /* center images horizontally */
   }
 
   .gallery-track img {
     width: 100% !important;   /* fill screen width */
     height: auto !important;
-    margin: 0 !important;
-    margin-left: 0;
-    object-fit: cover;
   }
 }
-
