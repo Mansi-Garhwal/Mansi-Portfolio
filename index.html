@@ -4,8 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mansi Garhwal | Home</title>
-
-  <!-- single stylesheet (desktop + mobile inside styles.css) -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="home">
@@ -13,8 +11,6 @@
   <!-- SIDEBAR / TOP-BAR (same markup for desktop & mobile) -->
   <aside class="sidebar" aria-label="Main navigation">
     <a href="index.html" class="logo">MANSI GARHWAL</a>
-
-    <!-- hamburger (hidden on desktop by CSS, shown on mobile) -->
     <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
 
     <nav class="sidebar-nav" aria-label="Site pages">
@@ -53,12 +49,10 @@
   </div>
 
   <!-- SCRIPTS -->
-  <!-- gallery.js: only needed for drag/inertia on desktop; safe to include (it returns early on pages without track) -->
   <script src="js/gallery.js"></script>
-
-  <!-- menu.js: MUST be present on every page for hamburger to work -->
   <script src="js/menu.js"></script>
 </body>
 </html>
+
 
 
