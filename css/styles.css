@@ -714,12 +714,9 @@ body.contact-page-body {
     font-weight: 400;
     letter-spacing: 0.5px;
   }
-   
+
   .sidebar-footer {
-    margin-top: auto; 
-    margin-bottom: auto;
-    display: flex;
-    align-items: flex-end;
+    display: none;
   }
 
   .sidebar-footer p {
@@ -734,7 +731,7 @@ body.contact-page-body {
     font-size: 1rem;
     color: var(--accent);
   }
-   
+
   .sidebar-socials {
     display: flex;
     gap: 7px;
@@ -852,3 +849,4 @@ body.contact-page-body {
     text-align: left;
   }
 }
+
