@@ -629,25 +629,28 @@ body.contact-page-body {
 }
 }
          
-/* =========================== MOBILE OVERRIDES =========================== */
-@media (min-width: 1px; max-width: 768px) {
-  /* body: allow vertical scroll only */
+/* ===================== MOBILE LAYOUT ===================== */
+@media (max-width: 768px) {
+  /* Body */
   body {
     overflow-x: hidden !important;
     overflow-y: auto !important;
     width: 100% !important;
-    height: auto;
+    height: auto !important;
+    margin: 0;
+    padding: 0;
   }
 
-  /* Sidebar top-bar style */
+  /* Top bar (Logo + Hamburger) */
   .sidebar {
     position: fixed;
     top: 0; left: 0; right: 0;
     height: 60px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(6px);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255,255,255,0.95);
+    flex-direction: column;
+    z-index: 2000;
     padding: 0 16px;
   }
 
@@ -658,9 +661,12 @@ body.contact-page-body {
     width: 100%;
     height: 60px;
   }
-   
+
   .sidebar .logo {
     font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--char);
   }
 
   .hamburger {
@@ -669,21 +675,20 @@ body.contact-page-body {
     background: none;
     border: none;
     cursor: pointer;
+    color: var(--char);
   }
 
-  /* Hide nav + footer until hamburger opens */
+  /* Hide nav + socials until menu is open */
   .sidebar-nav,
   .sidebar-footer {
     display: none;
   }
 
-  /* Overlay menu when open */
+  /* When menu opens */
   .sidebar.open {
-    flex-direction: column;
     height: 100vh;
-    align-items: center;
     justify-content: flex-start;
-    padding-top: 80px; /* space for logo/hamburger */
+    padding-top: 80px;
   }
   .sidebar.open .sidebar-nav,
   .sidebar.open .sidebar-footer {
@@ -694,8 +699,12 @@ body.contact-page-body {
   }
 
   .sidebar-nav a {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
+    color: var(--char);
     text-decoration: none;
+  }
+  .sidebar-nav a:hover {
+    color: var(--accent);
   }
 
   .sidebar-footer {
@@ -704,12 +713,16 @@ body.contact-page-body {
   }
   .sidebar-socials {
     display: flex;
-    gap: 1.5px;
+    gap: 16px;
+  }
+  .sidebar-socials img {
+    width: 28px;
+    height: 28px;
   }
 
-  /* HOME page gallery vertical */
+  /* ---------- HOME PAGE ---------- */
   .gallery-container {
-    margin-top: 60px;      /* leave space below top bar */
+    margin-top: 60px;        /* below top bar */
     margin-left: 0 !important;
     width: 100% !important;
     height: auto !important;
@@ -719,12 +732,98 @@ body.contact-page-body {
 
   .gallery-track {
     display: flex;
-    flex-direction: column !important;  /* stack images vertically */
+    flex-direction: column !important;
     gap: 15px;
+    width: 100%;
+    height: auto;
+    align-items: center;
   }
 
   .gallery-track img {
-    width: 100% !important;   /* fill screen width */
+    width: 100% !important;  /* full width */
     height: auto !important;
+    margin: 0 !important;
+    object-fit: cover;
+  }
+
+  /* ---------- ABOUT PAGE ---------- */
+  .about-grid {
+    margin: 80px 16px 40px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .about-grid .grid-item {
+    text-align: center;
+    align-items: center;
+  }
+
+  /* Portrait smaller */
+  .a2 img {
+    width: 60%;
+    border-radius: 6px;
+  }
+
+  /* ---------- WORK PAGE ---------- */
+  .work-page {
+    margin: 80px 16px 40px 16px;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 per row */
+    gap: 12px;
+  }
+
+  .thumb {
+    height: 160px;
+  }
+
+  .project-title {
+    font-size: 0.85rem;
+    text-align: left;
+    margin-top: 4px;
+  }
+
+  /* ---------- CONTACT PAGE ---------- */
+  .contact-page {
+    margin: 80px 16px 40px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .contact-left {
+    order: 2; /* image below */
+  }
+  .contact-hero {
+    width: 100%;
+    height: auto;
+  }
+
+  .contact-right {
+    order: 1; /* icons above */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .contact-method {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .contact-method img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .contact-method p {
+    margin: 0;
+    font-size: 0.9rem;
+    text-align: left;
   }
 }
