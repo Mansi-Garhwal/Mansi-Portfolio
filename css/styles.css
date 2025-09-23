@@ -28,6 +28,8 @@ body:not(.home) { overflow: auto; }
 }
 
 /* ---------- SIDEBAR (consistent on all pages) ---------- */
+@media (min-width: 769px) {
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -625,7 +627,8 @@ body.contact-page-body {
 .project-track::-webkit-scrollbar-track {
   background: transparent;
 }
-
+}
+         
 /* =========================== MOBILE OVERRIDES =========================== */
 @media (max-width: 768px) {
   /* body: allow vertical scroll only */
@@ -737,5 +740,3 @@ body.contact-page-body {
     object-fit: cover;
   }
 }
-
-
