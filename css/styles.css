@@ -817,6 +817,8 @@ body.contact-page-body {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    height: auto !important;
+    overflow: visible !important; /* prevent unwanted scroll tricks */
   }
 
   .contact-left {
@@ -835,7 +837,7 @@ body.contact-page-body {
     order: 1; /* icons above */
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
   }
 
   .contact-method {
@@ -846,8 +848,8 @@ body.contact-page-body {
   }
 
   .contact-method img {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
   }
 
   .contact-method p {
@@ -858,5 +860,3 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
-
-
