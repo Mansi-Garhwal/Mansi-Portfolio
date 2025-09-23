@@ -714,6 +714,7 @@ body.contact-page-body {
     flex-direction: column !important;  /* stack images vertically */
     gap: 15px;
     width: 100%;
+    height: auto;
     align-items: center;  /* center images horizontally */
   }
 
@@ -724,5 +725,6 @@ body.contact-page-body {
     object-fit: cover;
   }
 }
+
 
 
