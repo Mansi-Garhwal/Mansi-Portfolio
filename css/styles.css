@@ -687,7 +687,7 @@ body.contact-page-body {
   }
 
   .sidebar-nav a {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     text-decoration: none;
   }
 
@@ -697,12 +697,13 @@ body.contact-page-body {
   }
   .sidebar-socials {
     display: flex;
-    gap: 16px;
+    gap: 1.5px;
   }
 
   /* HOME page gallery vertical */
   .gallery-container {
     margin-top: 60px;      /* leave space below top bar */
+    margin-left: 0 !important;
     width: 100% !important;
     height: auto !important;
     overflow-y: auto !important;
@@ -725,6 +726,3 @@ body.contact-page-body {
     object-fit: cover;
   }
 }
-
-
-
