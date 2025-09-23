@@ -673,7 +673,7 @@ body.contact-page-body {
 
   .hamburger {
     display: block;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -689,6 +689,7 @@ body.contact-page-body {
   .sidebar.open {
     height: 100vh;
     justify-content: flex-start;
+    overflow-y: hidden;
   }
 
   .sidebar.open .sidebar-nav {
@@ -696,13 +697,14 @@ body.contact-page-body {
     flex-direction: column;
     align-items: flex-end;
     gap: 7px;
+    margin-top: 50px;         /* 👈 gap below logo row */
   }
   
   .sidebar.open .sidebar-footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 5px;
+    margin-top: 30px;
   }
    
   .sidebar-nav a {
@@ -849,6 +851,7 @@ body.contact-page-body {
     text-align: left;
   }
 }
+
 
 
 
