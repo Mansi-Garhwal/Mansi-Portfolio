@@ -718,14 +718,15 @@ body.contact-page-body {
   .sidebar-footer {
     margin-top: auto; 
     margin-bottom: auto;
-    align-items: center;
+    display: flex;
+    align-items: flex-end;
   }
 
   .sidebar-footer p {
     font-size: 0.7rem;
     margin-bottom: 3px;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: 4px;
   }
 
@@ -851,13 +852,3 @@ body.contact-page-body {
     text-align: left;
   }
 }
-
-
-
-
-
-
-
-
-
-
