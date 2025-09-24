@@ -786,6 +786,7 @@ body.contact-page-body {
     display: flex;
     flex-direction: column;
     gap: 40px;
+    padding: 15px;
   }
 
   .about-grid .grid-item {
@@ -793,38 +794,112 @@ body.contact-page-body {
     align-items: center;
   }
 
+  .about-grid h2, .about-grid h3 {
+    position: relative;
+    display: inline-block;   /* 👈 makes the line hug the text */
+    margin-bottom: 15px;    /* space below heading */
+    text-align: center;       /* centers text in its own box */
+  }
+
+  .about-grid h2::after, .about-grid h3::after {
+    content: "";
+    display: block;
+    width: 300px;             /* 👈 fixed length (adjust this for all) */
+    height: 1px;              /* line thickness */
+    background: var(--accent);
+    margin: 6px auto 0;       /* centers line under text */
+  }
+
+  .a1 p { font-family: 'Poppins', sans-serif;
+    font-size: 1rem;           /* ~16px */
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--char);
+  }
+   
   /* Portrait smaller */
   .a2 img {
     width: 60%;
     border-radius: 0px;
   }
+
+  /* headings & text */
+  .about-grid h2, .about-grid h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;        /* ~20px */
+    line-height: 1.4;
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+  
+  .about-grid p, .about-grid ul {
+    font-size: 0.9rem;
+    line-height: 1.2;
+    color: #555;
+  }
    
   /* On-field Experience row */
   .about-grid .b1 {
+    list-style: none;
     margin-bottom: 20px; /* space below */
-    padding: 10px 0;     /* space inside */
+    padding: 15px 0;     /* space inside */
   }
 
   /* Education row */
   .about-grid .b2 {
-    margin-bottom: 30px;
+    list-style: none;
+    margin-bottom: 20px;
     padding: 15px 0;
   }
 
+   
+
   /* Personal Skills */
   .about-grid .c1 {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    padding: 15px 0;
   }
 
   /* Digital Skills */
   .about-grid .c2 {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    padding: 15px 0;
   }
 
+  .skill-list p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+   
+  .d1full {
+     margin-bottom: 20px;
+  }
+     
   /* Trained Under */
   .about-grid .d1, .about-grid .d2 {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    padding: 15px 0;
   }
+
+  .trainer-top p, .trainer-top a {
+    margin-bottom: 10px;       /* 👈 adjust spacing between top & bottom */
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;           /* ~16px */
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--char);
+  }
+
+  /* Bottom part: address / details */
+  .trainer-bottom p, .trainer-bottom a {
+    margin-bottom: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;         /* ~13px */
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: #555;
+  } 
 
   /* ---------- WORK PAGE ---------- */
   .work-page {
@@ -899,6 +974,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
