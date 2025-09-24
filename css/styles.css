@@ -796,7 +796,34 @@ body.contact-page-body {
   /* Portrait smaller */
   .a2 img {
     width: 60%;
-    border-radius: 6px;
+    border-radius: 0px;
+  }
+   
+  /* On-field Experience row */
+  .about-grid .b1 {
+    margin-bottom: 20px; /* space below */
+    padding: 10px 0;     /* space inside */
+  }
+
+  /* Education row */
+  .about-grid .b2 {
+    margin-bottom: 30px;
+    padding: 15px 0;
+  }
+
+  /* Personal Skills */
+  .about-grid .c1 {
+    margin-bottom: 25px;
+  }
+
+  /* Digital Skills */
+  .about-grid .c2 {
+    margin-bottom: 25px;
+  }
+
+  /* Trained Under */
+  .about-grid .d1, .about-grid .d2 {
+    margin-bottom: 15px;
   }
 
   /* ---------- WORK PAGE ---------- */
@@ -872,5 +899,6 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
