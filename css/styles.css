@@ -22,14 +22,14 @@ body { font-family: 'Poppins', sans-serif; color: var(--char); }
 body.home { overflow: hidden; }
 body:not(.home) { overflow: auto; }
 
+/* ---------- SIDEBAR (consistent on all pages) ---------- */
+@media (min-width: 769px) {
+
 /* DESKTOP/LAPTOP ONLY */
 .hamburger {
   display: none;   /* never show on laptop */
 }
-
-/* ---------- SIDEBAR (consistent on all pages) ---------- */
-@media (min-width: 769px) {
-
+   
 .sidebar {
   position: fixed;
   top: 0;
@@ -47,6 +47,18 @@ body:not(.home) { overflow: auto; }
   box-shadow: none(0,0,0,0.06);
 }
 
+.sidebar-top {
+  display: flex;
+  flex-direction: column; /* logo stacked above nav */
+  align-items: flex-start;
+  gap: 6px; /* matches your original logo-to-nav gap */
+  width: 100%;
+}
+
+.sidebar-top .logo {
+  margin-bottom: 6px; /* optional fine tuning */
+}
+   
 .sidebar .logo {
   font-family: 'Playfair Display', serif;
   font-size: 1.75rem;
@@ -860,3 +872,4 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
