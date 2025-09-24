@@ -849,6 +849,31 @@ body.contact-page-body {
   padding-left: 0;               /* removes left indent */
 }
 
+.about-grid .b1 li {
+  margin: 5px 0;
+}
+
+.timeline li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.timeline .t-date {
+  font-weight: 550;
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+}
+
+.timeline .t-body {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+  text-align: center;
+}
+   
 /* ---------------- EDUCATION (b2) ---------------- */
 .about-grid .b2 {
   padding: 15px 0;
@@ -879,6 +904,7 @@ body.contact-page-body {
 /* ---------------- TRAINED UNDER (d1full heading + d1 + d2) ---------------- */
 .d1full {
   margin-bottom: 15px;           /* space below "Trained Under" heading */
+  gap: -40px;
 }
 
 .about-grid .d1, .about-grid .d2 {
@@ -980,6 +1006,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
