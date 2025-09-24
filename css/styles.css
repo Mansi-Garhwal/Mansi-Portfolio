@@ -423,7 +423,7 @@ footer {
 .thumb {
   position: relative;
   width: 100%;
-  height: 250px;            /* fixed grid size = 200px */
+  aspect-ratio: 16 / 9;   /* 👈 maintains 1280x720 ratio */
   overflow: hidden;
   border-radius: 0;
 }
@@ -872,4 +872,5 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
