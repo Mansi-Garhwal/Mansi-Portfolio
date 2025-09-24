@@ -781,125 +781,131 @@ body.contact-page-body {
   }
 
   /* ---------- ABOUT PAGE ---------- */
-  .about-grid {
-    margin: 80px 16px 40px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    padding: 15px;
-  }
+.about-grid {
+  margin: 80px 16px 40px 16px;   /* spacing: top, right, bottom, left */
+  display: flex;
+  flex-direction: column;        /* stack rows vertically */
+  gap: 40px;                     /* gap between each row */
+  padding: 15px;                 /* inner padding of the whole grid */
+}
 
-  .about-grid .grid-item {
-    text-align: center;
-    align-items: center;
-  }
+.about-grid .grid-item {
+  text-align: center;            /* centers text inside each cell */
+  align-items: center;           /* centers horizontally in flexbox */
+}
 
-  .about-grid h2, .about-grid h3 {
-    position: relative;
-    display: inline-block;   /* 👈 makes the line hug the text */
-    margin-bottom: 15px;    /* space below heading */
-    text-align: center;       /* centers text in its own box */
-  }
+/* Section titles (On-field, Education, Skills, etc.) */
+.about-grid h2, .about-grid h3 {
+  position: relative;
+  display: inline-block;         /* line matches text width */
+  margin-bottom: 15px;           /* space below headings */
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;            /* ~20px */
+  line-height: 1.4;
+  font-weight: 500;
+}
 
-  .about-grid h2::after, .about-grid h3::after {
-    content: "";
-    display: block;
-    width: 300px;             /* 👈 fixed length (adjust this for all) */
-    height: 1px;              /* line thickness */
-    background: var(--accent);
-    margin: 6px auto 0;       /* centers line under text */
-  }
+/* Decorative underline for headings */
+.about-grid h2::after, .about-grid h3::after {
+  content: "";
+  display: block;
+  width: 300px;                  /* fixed underline length (adjustable) */
+  height: 1px;                   /* line thickness */
+  background: var(--accent);
+  margin: 6px auto 0;            /* centers underline */
+}
 
-  .a1 p { font-family: 'Poppins', sans-serif;
-    font-size: 1rem;           /* ~16px */
-    line-height: 1.6;
-    font-weight: 400;
-    color: var(--char);
-  }
+/* Intro paragraph (a1) */
+.a1 p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--char);
+}
+
+/* Portrait image (a2) */
+.a2 img {
+  width: 80%;                    /* image takes 60% of container width */
+  border-radius: 0px;            /* sharp corners */
+}
+
+/* Shared text styles */
+.about-grid p, .about-grid ul {
+  font-size: 0.9rem;
+  line-height: 1.2;
+  color: #555;
+}
+
+/* ---------------- ON-FIELD EXPERIENCE (b1) ---------------- */
+.about-grid .b1 {
+  padding: 15px 0;               /* inner vertical spacing */
+}
    
-  /* Portrait smaller */
-  .a2 img {
-    width: 60%;
-    border-radius: 0px;
-  }
+.about-grid .b1 ul {
+  margin: 5px 0;
+  list-style: none;              /* removes bullet points */
+  padding-left: 0;               /* removes left indent */
+}
 
-  /* headings & text */
-  .about-grid h2, .about-grid h3 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.25rem;        /* ~20px */
-    line-height: 1.4;
-    font-weight: 500;
-    margin-bottom: 30px;
-  }
-  
-  .about-grid p, .about-grid ul {
-    font-size: 0.9rem;
-    line-height: 1.2;
-    color: #555;
-  }
-   
-  /* On-field Experience row */
-  .about-grid .b1 {
-    list-style: none;
-    margin-bottom: 20px; /* space below */
-    padding: 15px 0;     /* space inside */
-  }
+/* ---------------- EDUCATION (b2) ---------------- */
+.about-grid .b2 {
+  padding: 15px 0;
+}
 
-  /* Education row */
-  .about-grid .b2 {
-    list-style: none;
-    margin-bottom: 20px;
-    padding: 15px 0;
-  }
+.about-grid .b2 ul {
+  list-style: none;              /* removes bullet points */
+  padding-left: 0;
+  margin: 5px 0;
+}
 
-   
+/* ---------------- PERSONAL SKILLS (c1) ---------------- */
+.about-grid .c1 {
+  padding: 15px 0;
+}
 
-  /* Personal Skills */
-  .about-grid .c1 {
-    margin-bottom: 20px;
-    padding: 15px 0;
-  }
+/* ---------------- DIGITAL SKILLS (c2) ---------------- */
+.about-grid .c2 {
+  padding: 15px 0;
+}
 
-  /* Digital Skills */
-  .about-grid .c2 {
-    margin-bottom: 20px;
-    padding: 15px 0;
-  }
+.skill-list p {
+  margin: 5px 0;                 /* spacing between skill lines */
+  font-size: 0.9rem;
+  text-align: center;
+}
 
-  .skill-list p {
-    margin: 5px 0;
-    font-size: 0.9rem;
-    text-align: center;
-  }
-   
-  .d1full {
-     margin-bottom: 20px;
-  }
-     
-  /* Trained Under */
-  .about-grid .d1, .about-grid .d2 {
-    margin-bottom: 20px;
-    padding: 15px 0;
-  }
+/* ---------------- TRAINED UNDER (d1full heading + d1 + d2) ---------------- */
+.d1full {
+  margin-bottom: 15px;           /* space below "Trained Under" heading */
+}
 
-  .trainer-top p, .trainer-top a {
-    margin-bottom: 10px;       /* 👈 adjust spacing between top & bottom */
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;           /* ~16px */
-    line-height: 1.6;
-    font-weight: 400;
-    color: var(--char);
-  }
+.about-grid .d1, .about-grid .d2 {
+  padding: 15px 0;
+}
 
-  /* Bottom part: address / details */
-  .trainer-bottom p, .trainer-bottom a {
-    margin-bottom: 50px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.8rem;         /* ~13px */
-    font-weight: 400;
-    letter-spacing: 0.5px;
-    color: #555;
-  } 
+/* Trainer name + role */
+.trainer-top p, .trainer-top a {
+  margin-bottom: 10px;           /* space between name and address */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;               /* ~16px */
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--char);
+  text-align: center;
+}
+
+/* Trainer address/details */
+.trainer-bottom p, .trainer-bottom a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;             /* ~13px */
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: #555;
+  text-align: center;
+  margin: 5px 0;                 /* spacing between skill lines */
+} 
 
   /* ---------- WORK PAGE ---------- */
   .work-page {
@@ -974,6 +980,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
