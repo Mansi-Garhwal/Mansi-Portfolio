@@ -339,9 +339,11 @@ footer {
 
 .skill-top p {
   margin-bottom: 5px;
+}
 
 .skill-bottom p {
   margin-bottom: 15px;
+}
    
 /* trainers */
 .d1full {
@@ -928,6 +930,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
