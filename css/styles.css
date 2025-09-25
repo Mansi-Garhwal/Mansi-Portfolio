@@ -808,7 +808,7 @@ body.contact-page-body {
 .about-grid h2::after, .about-grid h3::after {
   content: "";
   display: block;
-  width: 400px;
+  width: 300px;
   height: 1px;
   background: var(--accent);
   margin: 5px auto 0;
@@ -867,6 +867,7 @@ body.contact-page-body {
   line-height: 1.5;
   text-align: center;
 }
+.timeline .li { margin-bottom: 20px; }
    
 /* --------- b2 (Education) --------- */
 .b2 { margin-bottom: 30px; padding: 15px 0; } /* (10) b2 → c1 gap */
@@ -884,6 +885,8 @@ body.contact-page-body {
   padding-left: 0;
   margin-bottom: 20px;
 }
+
+.timeline short .li { margin-bottom: 20px; }   
    
 /* --------- c1 (Personal Skills) --------- */
 .c1 { margin-bottom: 30px; padding: 15px 0; } /* (11) c1 → c2 gap */
@@ -986,6 +989,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
