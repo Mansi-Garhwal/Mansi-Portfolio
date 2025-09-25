@@ -232,12 +232,12 @@ footer {
 /* ---------- ABOUT GRID (previous correct version) ---------- */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;   /* 2-column grid */
   grid-auto-rows: auto;
-  margin-left: 350px;
-  padding: 37.5px 50px 37.5px 0;
-  row-gap: 60px; /* change this for row gap */
-  column-gap: 30px; /* change this for row gap */
+  margin-left: 350px;               /* space for sidebar */
+  padding: 37.5px 50px 37.5px 0;    /* top, right, bottom, left */
+  row-gap: 60px;                    /* vertical gap between rows */
+  column-gap: 30px;                 /* horizontal gap between columns */
 }
 
 /* shared axis with gutters */
@@ -254,6 +254,10 @@ footer {
   display: inline-block;   /* 👈 makes the line hug the text */
   margin-bottom: 15px;    /* space below heading */
   text-align: center;       /* centers text in its own box */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;               /* ~20px */
+  line-height: 1.4;
+  font-weight: 500;
 }
 
 .about-grid h2::after,
@@ -271,10 +275,12 @@ footer {
   display: flex;
   align-items: center;
 }
+
 .a1 { justify-content: center; }
 .a2 { justify-content: center; }
 
-.a1 p { font-family: 'Poppins', sans-serif;
+.a1 p {
+  font-family: 'Poppins', sans-serif;
   font-size: 1rem;           /* ~16px */
   line-height: 1.6;
   font-weight: 400;
@@ -294,20 +300,6 @@ footer {
   display: flex;
   align-items: center;
   flex-direction: column;
-}
-
-/* headings & text */
-.about-grid h2, .about-grid h3 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.25rem;        /* ~20px */
-  line-height: 1.4;
-  font-weight: 500;
-  margin-bottom: 30px;
-}
-.about-grid p, .about-grid ul {
-  font-size: 0.9rem;
-  line-height: 1.2;
-  color: #555;
 }
 
 /* timeline */
@@ -393,12 +385,6 @@ footer {
   font-weight: 400;
   letter-spacing: 0.5px;
   color: #555;
-}
-
-/* responsive */
-@media (max-width: 100%) {
-  .about-grid { grid-template-columns: 1fr 1fr; }
-  .a1, .a2, .b1, .b2, .c1, .c2, .d1, .d2 { text-align:center; }
 }
 
 /* -------- WORK PAGE -------- */
@@ -786,6 +772,7 @@ body.contact-page-body {
   margin: 80px 15px 40px 15px;
   display: flex;
   flex-direction: column;
+  gap: 30px;
   padding: 15px;
 }
 
@@ -801,13 +788,9 @@ body.contact-page-body {
   line-height: 1.4;
   font-weight: 500;
   margin-bottom: 10px;      /* (5 & 8) heading → paragraph gap */
-  text-align: center;
-  position: relative;
-  display: inline-block;
 }
+
 .about-grid h2::after, .about-grid h3::after {
-  content: "";
-  display: block;
   width: 300px;
   height: 1px;
   background: var(--accent);
@@ -821,100 +804,51 @@ body.contact-page-body {
   text-align: center;
   line-height: 1.6;
   color: var(--char);
-  margin-bottom: 15px;      /* (2) gap a1 → a2 */
 }
 
 /* --------- a2 (Portrait) --------- */
 .a2 img {
   width: 80%;               /* (3) image size */
   border-radius: 0;
-  margin-bottom: 30px;      /* (4) gap a2 → b1 */
-}
-
-/* ---------------- Shared Text ---------------- */
-.about-grid p, .about-grid ul {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  color: #555;
+  margin-top: 15px;      /* gap between a1 and a2 */
 }
    
-/* --------- b1 (On-field experience) --------- */
-.b1 { margin-bottom: 30px; padding: 15px 0; } /* (7) b1 → b2 gap */
-.b1 h3 { margin-bottom: 20px; } /* (5) heading → text gap */
-.b1 p {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  margin: 0;
-}
-.b1 p + p { margin-top: 7px; }         /* (6) small gap inside block */
-.b1 p.group-gap { margin-top: 20px; }  /* (6) larger gap between groups */
+/* On-field Experience (b1) */
+  .b1 { margin-top: 30px; }
+  .b1 h3 { margin-bottom: 10px; }
+  .timeline li { margin-bottom: 10px; }
+  .timeline .t-date { margin-bottom: 5px; }
 
-.about-grid .b1 ul {
-  list-style: none;              /* remove bullets */
-  padding-left: 0;
-  margin-bottom: 20px;
-}
+  /* Education (b2) */
+  .b2 { margin-top: 30px; }
+  .b2 h3 { margin-bottom: 10px; }
+  .b2 .timeline li { margin-bottom: 10px; }
 
-.timeline .t-date {
-  font-weight: 600;
-  color: #555;
-  font-size: 0.9rem;
-  margin-bottom: 4px;
-}
-.timeline .t-body {
-  font-size: 0.9rem;
-  color: #555;
-  line-height: 1.5;
-  text-align: center;
-}
-.timeline .li { margin-bottom: 20px; }
+  /* Skills */
+  .c1, .c2 { margin-top: 30px; }
+  .skill-list p {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    text-align: center;
+  }
    
-/* --------- b2 (Education) --------- */
-.b2 { margin-bottom: 30px; padding: 15px 0; } /* (10) b2 → c1 gap */
-.b2 h3 { margin-bottom: 20px; } /* (8) heading → text gap */
-.b2 p {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  margin: 0;
-}
-.b2 p + p { margin-top: 7px; }         /* (9) small gap inside block */
-.b2 p.group-gap { margin-top: 20px; }  /* (9) larger gap between groups */
+  /* --------- d1full (Trained Under heading) --------- */
+  .d1full { margin-bottom: 15px; } /* (12) heading → d1 gap */
 
-.about-grid .b2 ul {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 20px;
-}
+  /* --------- d1 & d2 (Trainers) --------- */
+  .d1, .d2 { margin-top: 10px; } /* (13) trainer blocks gap */
 
-.timeline short .li { margin-bottom: 20px; }   
-   
-/* --------- c1 (Personal Skills) --------- */
-.c1 { margin-bottom: 30px; padding: 15px 0; } /* (11) c1 → c2 gap */
-.c1 h3 { margin-bottom: 20px; }
-.c1 p { margin: 7px 0; }
-
-/* --------- c2 (Digital Skills) --------- */
-.c2 { margin-bottom: 30px; }
-.c2 h3 { margin-bottom: 20px; }
-.c2 p { margin: 5px 0; }
-
-/* --------- d1full (Trained Under heading) --------- */
-.d1full { margin-bottom: 15px; padding: 15px 0; } /* (12) heading → d1 gap */
-
-/* --------- d1 & d2 (Trainers) --------- */
-.d1, .d2 { margin-bottom: 5px; } /* (13) trainer blocks gap */
-.trainer-top p {
-  margin: 0 0 7px 0;             /* (13) name → address gap = 5px */
-  font-size: 1rem;
-  font-weight: 500;
-  text-align: center;
-}
-.trainer-bottom p {
-  margin-bottom: 20px;
-  font-size: 0.85rem;
-  color: #555;
-  text-align: center;
-} 
+  .trainer-top p {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  
+  .trainer-bottom p {
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    color: #555;
+  }
 
   /* ---------- WORK PAGE ---------- */
   .work-page {
@@ -989,6 +923,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
