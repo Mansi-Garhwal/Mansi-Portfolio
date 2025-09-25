@@ -780,7 +780,7 @@ body.contact-page-body {
     object-fit: cover;
   }
 
-  /* ---------- ABOUT PAGE ---------- */
+/* ---------- ABOUT PAGE ---------- */
 .about-grid {
   margin: 80px 16px 40px 16px;   /* spacing: top, right, bottom, left */
   display: flex;
@@ -791,7 +791,7 @@ body.contact-page-body {
 
 .about-grid .grid-item {
   text-align: center;            /* centers text inside each cell */
-  align-items: center;           /* centers horizontally in flexbox */
+  align-items: center;           /* centers horizontally in horizontally */
 }
 
 /* Section titles (On-field, Education, Skills, etc.) */
@@ -850,14 +850,14 @@ body.contact-page-body {
 }
 
 .about-grid .b1 li {
-  margin: 5px 0;
+  margin: 10px 0;                 /* spacing between each list item */
 }
 
 .timeline li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .timeline .t-date {
@@ -882,7 +882,7 @@ body.contact-page-body {
 .about-grid .b2 ul {
   list-style: none;              /* removes bullet points */
   padding-left: 0;
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 /* ---------------- PERSONAL SKILLS (c1) ---------------- */
@@ -904,11 +904,10 @@ body.contact-page-body {
 /* ---------------- TRAINED UNDER (d1full heading + d1 + d2) ---------------- */
 .d1full {
   margin-bottom: 15px;           /* space below "Trained Under" heading */
-  gap-bottom: -40px;
 }
 
 .about-grid .d1, .about-grid .d2 {
-  padding: 15px 0;
+  padding: 15px 0;               /* vertical spacing inside each trainer block */
 }
 
 /* Trainer name + role */
@@ -1006,6 +1005,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
