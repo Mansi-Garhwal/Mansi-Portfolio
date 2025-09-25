@@ -332,16 +332,18 @@ footer {
 
 /* skills */
 .skill-list p {
-  margin: 15px 0;
+  margin: 0px;
   font-size: 0.9rem;
   text-align: center;
 }
 
 .skill-top li {
-  margin-bottom: 5px;       /* 👈 adjust spacing between top & bottom */
-         
+  margin-bottom: 5px;
+
+.skill-bottom li {
+  margin-bottom: 15px;
+   
 /* trainers */
-/* Full-width heading row */
 .d1full {
   grid-column: 1 / span 2;   /* stretches heading across both columns */
   text-align: center;
@@ -935,6 +937,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
