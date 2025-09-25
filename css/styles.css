@@ -337,7 +337,8 @@ footer {
   text-align: center;
 }
 
-.c2 p { margin-bottom: 15px; }
+.skill-top p, .skill-top a {
+  margin-bottom: 5px;       /* 👈 adjust spacing between top & bottom */
          
 /* trainers */
 /* Full-width heading row */
@@ -382,7 +383,7 @@ footer {
 
 /* Bottom part: address / details */
 .trainer-bottom p, .trainer-bottom a {
-  margin-bottom: 50px;
+  margin: 0px;
   font-family: 'Poppins', sans-serif;
   font-size: 0.8rem;         /* ~13px */
   font-weight: 400;
@@ -390,7 +391,7 @@ footer {
   color: #555;
 }
 
-.d1, .d2 p { margin-bottom: 30px; }
+.d1, .d2 .trainer-list, .trainer-list group-gap p { margin-bottom: 30px; }
 
 /* -------- WORK PAGE -------- */
 .work-page {
@@ -928,6 +929,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
