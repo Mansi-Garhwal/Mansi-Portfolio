@@ -780,25 +780,25 @@ body.contact-page-body {
     object-fit: cover;
   }
 
-/* ---------- ABOUT PAGE ---------- */
+/* ---------- ABOUT PAGE (MOBILE) ---------- */
 .about-grid {
-  margin: 80px 16px 40px 16px;   /* spacing: top, right, bottom, left */
+  margin: 80px 16px 40px 16px;   /* outer margins: top, right, bottom, left */
   display: flex;
   flex-direction: column;        /* stack rows vertically */
-  gap: 40px;                     /* gap between each row */
-  padding: 15px;                 /* inner padding of the whole grid */
+  gap: 0;                        /* we control spacing via margins below */
+  padding: 15px;                 /* inner padding */
 }
 
 .about-grid .grid-item {
-  text-align: center;            /* centers text inside each cell */
-  align-items: center;           /* centers horizontally in horizontally */
+  text-align: center;
+  align-items: center;
 }
 
-/* Section titles (On-field, Education, Skills, etc.) */
+/* ---------------- Section Headings ---------------- */
 .about-grid h2, .about-grid h3 {
   position: relative;
-  display: inline-block;         /* line matches text width */
-  margin-bottom: 15px;           /* space below headings */
+  display: inline-block;         /* underline sized to text */
+  margin-bottom: 15px;           /* space below heading */
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-size: 1.25rem;            /* ~20px */
@@ -806,17 +806,17 @@ body.contact-page-body {
   font-weight: 500;
 }
 
-/* Decorative underline for headings */
+/* Decorative underline */
 .about-grid h2::after, .about-grid h3::after {
   content: "";
   display: block;
-  width: 300px;                  /* fixed underline length (adjustable) */
-  height: 1px;                   /* line thickness */
+  width: 300px;                  /* fixed underline length */
+  height: 1px;
   background: var(--accent);
   margin: 6px auto 0;            /* centers underline */
 }
 
-/* Intro paragraph (a1) */
+/* ---------------- Intro (a1 + a2) ---------------- */
 .a1 p {
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
@@ -824,107 +824,108 @@ body.contact-page-body {
   font-weight: 400;
   color: var(--char);
 }
-
-/* Portrait image (a2) */
 .a2 img {
-  width: 80%;                    /* image takes 60% of container width */
-  border-radius: 0px;            /* sharp corners */
+  width: 60%;                    /* portrait smaller */
+  border-radius: 0px;
 }
 
-/* Shared text styles */
+/* ---------------- Shared Text ---------------- */
 .about-grid p, .about-grid ul {
   font-size: 0.9rem;
-  line-height: 1.2;
+  line-height: 1.4;
   color: #555;
 }
 
 /* ---------------- ON-FIELD EXPERIENCE (b1) ---------------- */
 .about-grid .b1 {
-  padding: 15px 0;               /* inner vertical spacing */
+  margin-bottom: 40px;
+  padding: 15px 0;
 }
-   
 .about-grid .b1 ul {
-  margin: 5px 0;
-  list-style: none;              /* removes bullet points */
-  padding-left: 0;               /* removes left indent */
+  list-style: none;              /* remove bullets */
+  padding-left: 0;
+  margin: 0;
 }
+.about-grid .b1 li { margin: 6px 0; }
 
-.about-grid .b1 li {
-  margin: 10px 0;                 /* spacing between each list item */
-}
-
+/* Timeline look */
 .timeline li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
-
 .timeline .t-date {
-  font-weight: 550;
+  font-weight: 600;
   color: #555;
   font-size: 0.9rem;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
-
 .timeline .t-body {
   font-size: 0.9rem;
   color: #555;
   line-height: 1.5;
   text-align: center;
 }
-   
+
 /* ---------------- EDUCATION (b2) ---------------- */
 .about-grid .b2 {
+  margin-bottom: 40px;
   padding: 15px 0;
 }
-
 .about-grid .b2 ul {
-  list-style: none;              /* removes bullet points */
+  list-style: none;
   padding-left: 0;
-  margin: 10px 0;
+  margin: 0;
 }
+.about-grid .b2 li { margin: 6px 0; }
 
 /* ---------------- PERSONAL SKILLS (c1) ---------------- */
 .about-grid .c1 {
+  margin-bottom: 40px;
   padding: 15px 0;
 }
 
 /* ---------------- DIGITAL SKILLS (c2) ---------------- */
 .about-grid .c2 {
+  margin-bottom: 40px;
   padding: 15px 0;
 }
-
 .skill-list p {
-  margin-bottom: 5px;
+  margin-bottom: 6px;
   font-size: 0.9rem;
   text-align: center;
 }
 
-/* ---------------- TRAINED UNDER (d1full heading + d1 + d2) ---------------- */
+/* ---------------- TRAINED UNDER ---------------- */
 .d1full {
-  margin-bottom: 15px;           /* space below "Trained Under" heading */
+  margin-bottom: 15px;           /* space before trainers start */
+}
+.about-grid .d1 {
+  margin-bottom: 5px;            /* d1 → d2 spacing */
+  padding: 15px 0;
+}
+.about-grid .d2 {
+  margin-bottom: 0;              /* last block clean */
+  padding: 15px 0;
 }
 
-.about-grid .d1, .about-grid .d2 {
-  padding: 15px 0;               /* vertical spacing inside each trainer block */
-}
-
-/* Trainer name + role */
+/* Trainer names */
 .trainer-top p, .trainer-top a {
-  margin-bottom: 10px;           /* space between name and address */
+  margin-bottom: 10px;
   font-family: 'Poppins', sans-serif;
-  font-size: 1rem;               /* ~16px */
+  font-size: 1rem;
   line-height: 1.6;
   font-weight: 400;
   color: var(--char);
   text-align: center;
+  text-decoration: none;
 }
 
 /* Trainer address/details */
 .trainer-bottom p, .trainer-bottom a {
   font-family: 'Poppins', sans-serif;
-  font-size: 0.8rem;             /* ~13px */
+  font-size: 0.8rem;
   font-weight: 400;
   letter-spacing: 0.5px;
   color: #555;
@@ -1005,11 +1006,3 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
-
-
-
-
-
-
-
-
