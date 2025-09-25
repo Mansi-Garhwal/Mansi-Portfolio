@@ -899,7 +899,7 @@ body.contact-page-body {
 
 /* ---------------- TRAINED UNDER ---------------- */
 .d1full {
-  margin-bottom: 15px;           /* space before trainers start */
+  margin-bottom: 6px;           /* space before trainers start */
 }
 .about-grid .d1 {
   margin-bottom: 5px;            /* d1 → d2 spacing */
@@ -912,7 +912,7 @@ body.contact-page-body {
 
 /* Trainer names */
 .trainer-top p, .trainer-top a {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
@@ -930,7 +930,7 @@ body.contact-page-body {
   letter-spacing: 0.5px;
   color: #555;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 } 
 
   /* ---------- WORK PAGE ---------- */
@@ -1006,3 +1006,4 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
