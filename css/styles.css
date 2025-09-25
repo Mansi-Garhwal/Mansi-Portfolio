@@ -798,6 +798,7 @@ body.contact-page-body {
 .about-grid h2, .about-grid h3 {
   font-family: 'Poppins', sans-serif;
   font-size: 1.25rem;
+  line-height: 1.4;
   font-weight: 500;
   margin-bottom: 10px;      /* (5 & 8) heading → paragraph gap */
   text-align: center;
@@ -815,6 +816,7 @@ body.contact-page-body {
 
 /* --------- a1 (Intro paragraph) --------- */
 .a1 p {
+  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   text-align: center;
   line-height: 1.6;
@@ -829,8 +831,15 @@ body.contact-page-body {
   margin-bottom: 30px;      /* (4) gap a2 → b1 */
 }
 
+/* ---------------- Shared Text ---------------- */
+.about-grid p, .about-grid ul {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #555;
+}
+   
 /* --------- b1 (On-field experience) --------- */
-.b1 { margin-bottom: 30px; } /* (7) b1 → b2 gap */
+.b1 { margin-bottom: 30px; padding: 15px 0; } /* (7) b1 → b2 gap */
 .b1 h3 { margin-bottom: 20px; } /* (5) heading → text gap */
 .b1 p {
   font-size: 0.9rem;
@@ -860,7 +869,7 @@ body.contact-page-body {
 }
    
 /* --------- b2 (Education) --------- */
-.b2 { margin-bottom: 30px; } /* (10) b2 → c1 gap */
+.b2 { margin-bottom: 30px; padding: 15px 0; } /* (10) b2 → c1 gap */
 .b2 h3 { margin-bottom: 20px; } /* (8) heading → text gap */
 .b2 p {
   font-size: 0.9rem;
@@ -877,7 +886,7 @@ body.contact-page-body {
 }
    
 /* --------- c1 (Personal Skills) --------- */
-.c1 { margin-bottom: 30px; } /* (11) c1 → c2 gap */
+.c1 { margin-bottom: 30px; padding: 15px 0; } /* (11) c1 → c2 gap */
 .c1 h3 { margin-bottom: 20px; }
 .c1 p { margin: 7px 0; }
 
@@ -887,10 +896,10 @@ body.contact-page-body {
 .c2 p { margin: 5px 0; }
 
 /* --------- d1full (Trained Under heading) --------- */
-.d1full { margin-bottom: 15px; } /* (12) heading → d1 gap */
+.d1full { margin-bottom: 15px; padding: 15px 0; } /* (12) heading → d1 gap */
 
 /* --------- d1 & d2 (Trainers) --------- */
-.d1, .d2 { margin-bottom: 10px; } /* (13) trainer blocks gap */
+.d1, .d2 { margin-bottom: 5px; } /* (13) trainer blocks gap */
 .trainer-top p {
   margin: 0 0 7px 0;             /* (13) name → address gap = 5px */
   font-size: 1rem;
@@ -977,6 +986,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
