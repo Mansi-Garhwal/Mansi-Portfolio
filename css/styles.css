@@ -337,10 +337,10 @@ footer {
   text-align: center;
 }
 
-.skill-top li {
+.skill-top p {
   margin-bottom: 5px;
 
-.skill-bottom li {
+.skill-bottom p {
   margin-bottom: 15px;
    
 /* trainers */
@@ -392,15 +392,6 @@ footer {
   color: #555;
 }
 
-/* responsive */
-@media (max-width: 100%) {
-  .about-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .a1, .a2, .b1, .b2, .c1, .c2, .d1, .d2 {
-    text-align: center;
-  }
-   
 /* -------- WORK PAGE -------- */
 .work-page {
   margin-left: 350px;
@@ -937,6 +928,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
