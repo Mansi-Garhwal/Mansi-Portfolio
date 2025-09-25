@@ -337,11 +337,11 @@ footer {
   text-align: center;
 }
 
-.skill-top p, .skill-top a {
+.c2 .skill-top p, .skill-top a {
   margin-bottom: 5px;
 }
 
-.skill-bottom p, .skill-bottom a {
+.c2 .skill-bottom p, .skill-bottom a {
   margin-bottom: 15px;
 }
    
@@ -370,12 +370,12 @@ footer {
 }
 
 /* Trainer info blocks */
-.trainer-list p, .trainer-list a {
+.d1, .d2 .trainer-list p, .trainer-list a {
   text-align: center;
 }
 
 /* Top part: names + designation */
-.trainer-top p, .trainer-top a {
+.d1, .d2 .trainer-top p, .trainer-top a {
   margin-bottom: 10px;       /* 👈 adjust spacing between top & bottom */
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;           /* ~16px */
@@ -385,7 +385,7 @@ footer {
 }
 
 /* Bottom part: address / details */
-.trainer-bottom p, .trainer-bottom a {
+.d1, .d2 .trainer-bottom p, .trainer-bottom a {
   margin-bottom: 50px;
   font-family: 'Poppins', sans-serif;
   font-size: 0.8rem;         /* ~13px */
@@ -930,6 +930,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
