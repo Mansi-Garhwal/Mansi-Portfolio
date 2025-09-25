@@ -337,6 +337,8 @@ footer {
   text-align: center;
 }
 
+.c2 p { margin-bottom: 15px; }
+         
 /* trainers */
 /* Full-width heading row */
 .d1full {
@@ -387,6 +389,8 @@ footer {
   letter-spacing: 0.5px;
   color: #555;
 }
+
+.d1, .d2 p { margin-bottom: 30px; }
 
 /* -------- WORK PAGE -------- */
 .work-page {
@@ -924,6 +928,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
