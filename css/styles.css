@@ -337,11 +337,11 @@ footer {
   text-align: center;
 }
 
-.skill-top p {
+.skill-top p, .skill-top a {
   margin-bottom: 5px;
 }
 
-.skill-bottom p {
+.skill-bottom p, .skill-bottom a {
   margin-bottom: 15px;
 }
    
@@ -930,6 +930,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
