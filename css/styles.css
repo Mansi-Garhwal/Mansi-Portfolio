@@ -333,7 +333,7 @@ footer {
 /* skills */
 .skill-list p {
   margin: 0px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-align: center;
 }
 
@@ -930,6 +930,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
