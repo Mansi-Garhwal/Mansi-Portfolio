@@ -462,77 +462,119 @@ footer {
 
 /* ------- PROJECT PAGE: fixes ------- */
 
-body.project-inner-body {
-  overflow-y: hidden;   /* ❌ no vertical scrollbars */
-  overflow-x: hidden;   /* optional: if you want only drag/trackpad horizontal scroll */
+/* Root variables for consistent spacing */
+:root {
+  --sidebar-offset: 350px;     /* same width offset as your sidebar */
+  --gallery-height: 280px;     /* height of bottom carousel */
 }
 
+/* General page layout */
 .project-page {
-  position: relative;
-  margin: 37.5px 30px 37.5px 0;      /* left margin removed so sidebar can overlap */
-  height: calc(100vh - 75px);
-  overflow: hidden;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   box-sizing: border-box;
+  background-color: #fff; /* optional - keep your existing bg */
 }
 
-/* NOTE: match the class used in your HTML. If your track element's class is "track",
-   use .track below; if it's class="project-track" use that instead. */
-.class, .project-track {
+/* Content wrapper of the page (text, hero, info, etc.) */
+.project-content {
+  flex: 1; /* pushes gallery to bottom if content is short */
+  box-sizing: border-box;
+  padding: 0 80px;
+  padding-bottom: var(--gallery-height); /* prevents overlap with bottom gallery */
+  overflow-x: hidden;
+}
+
+.project-gallery {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: var(--gallery-height);
+  z-index: 60;                  /* stay above other elements */
+  background: #fff;             /* or transparent if you prefer */
   display: flex;
-  gap: 30px;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  border-top: 1px solid #ddd;   /* subtle top border line (optional) */
+}
+
+/* Inner horizontal track (holds all images/slides) */
+.project-gallery .gallery-track {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 20px;
   height: 100%;
-  will-change: transform;
-  transform: translate3d(0,0,0);
   overflow-x: auto;
   overflow-y: hidden;
+  padding-left: var(--sidebar-offset); /* aligns first slide with sidebar */
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  box-sizing: border-box;
 }
-.class::-webkit-scrollbar, .project-track::-webkit-scrollbar { display: none; }
 
-/* PANEL base */
-.panel {
-  flex-shrink: 0;
-  height: 100%;
+/* Individual slide container */
+.project-gallery .slide {
+  flex: 0 0 auto;  /* prevents shrinking */
+  width: 38vw;     /* width of each image card */
   display: flex;
-  align-items: center;       /* centers children vertically by default */
+  align-items: center;
   justify-content: center;
-  box-sizing: border-box;
+  position: relative;
 }
 
-/* TEXT PANEL (first column) — fixed width and vertically centered */
-.panel-text {
-  margin-left: 350px;
-  width: 500px;              /* exact width you wanted */
-  flex-shrink: 0;
-  display: flex;             /* make this panel a flex column */
-  flex-direction: column;
-  justify-content: center;   /* <-- vertical centering of the content inside the 500px panel */
-  align-items: flex-start;   /* keep text left-aligned inside this column; change to center if you want horizontally centered */
-  box-sizing: border-box;
-}
-
-/* Set inner content width to keep text readable */
-.panel-text .panel-inner {
-  max-width: 500px;
-  margin: 0;
-}
-
-/* Make project images same as HOME images (same vertical margins & height) */
-.panel-image img {
-  height: calc(100vh - 75px); /* same as HOME */
+/* Image styling inside the slides */
+.project-gallery .slide img {
+  height: calc(var(--gallery-height) - 40px); /* keep some top/bottom breathing room */
   width: auto;
   object-fit: cover;
   display: block;
-  box-sizing: border-box;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
 }
 
-/* avoid extra margins from paragraphs inside panels */
-.panel-text p, .panel-text .proj-desc, .panel-image p {
-  margin-top: 0;
-  margin-bottom: 0;
+/* Hover zoom effect */
+.project-gallery .slide img:hover {
+  transform: scale(1.03);
+}
+
+/* Scrollbar styling (optional for modern look) */
+.project-gallery .gallery-track::-webkit-scrollbar {
+  height: 6px;
+}
+.project-gallery .gallery-track::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 3px;
+}
+.project-gallery .gallery-track::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+/* Optional responsiveness tweak */
+@media (max-width: 1024px) {
+  :root {
+    --gallery-height: 220px;
+    --sidebar-offset: 280px;
+  }
+  .project-gallery .slide {
+    width: 55vw;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --gallery-height: 180px;
+    --sidebar-offset: 0px;
+  }
+  .project-content {
+    padding: 0 20px;
+    padding-bottom: var(--gallery-height);
+  }
+  .project-gallery .slide {
+    width: 75vw;
+  }
 }
 
 /* ---------- CONTACT PAGE ---------- */
@@ -930,6 +972,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
