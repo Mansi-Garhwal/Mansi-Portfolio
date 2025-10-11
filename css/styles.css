@@ -374,10 +374,6 @@ footer {
   text-align: center;
   margin-bottom: 30px;
 }
-
-.trainer-list group-gap p, .trainer-list group-gap a {
-  text-align: center;
-}
          
 /* Top part: names + designation */
 .trainer-list .trainer-top p, .trainer-list .trainer-top a {
@@ -965,6 +961,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
