@@ -484,7 +484,7 @@ footer {
   padding-left: 350px;
   display: flex;
   align-items: center;
-  gap: 3px; /* spacing between images */
+  gap: 10px; /* spacing between images */
   height: 100%;
   will-change: transform;
   transform: translate3d(0,0,0);
@@ -524,7 +524,6 @@ footer {
 
 /* TEXT PANEL (first column) — fixed width and vertically centered */
 .panel-text {
-  margin-left: 350px;
   width: 500px;              /* exact width you wanted */
   flex-shrink: 0;
   display: flex;             /* make this panel a flex column */
@@ -963,6 +962,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
