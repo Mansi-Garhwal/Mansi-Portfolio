@@ -372,6 +372,7 @@ footer {
 /* Trainer info blocks */
 .trainer-list p, .trainer-list a {
   text-align: center;
+  gap: 30px;
 }
 
 /* Top part: names + designation */
@@ -962,6 +963,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
