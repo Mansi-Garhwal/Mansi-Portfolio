@@ -466,7 +466,7 @@ footer {
 :root {
   --sidebar-offset: 350px;     /* same width offset as your sidebar */
   --gallery-height: 280px;     /* height of bottom carousel */
-  --gallery-height: 30px;
+  --gallery-height: 15px;
 
 .project-page {
   position: relative;
@@ -955,6 +955,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
