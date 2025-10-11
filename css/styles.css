@@ -370,11 +370,15 @@ footer {
 }
 
 /* Trainer info blocks */
-.grid-item d1 p, .grid-item d1 a, .grid-item d2 p, .grid-item d2 a {
+.trainer-list p, .trainer-list a {
   text-align: center;
-  gap: 30px;
+  margin-bottom: 30px;
 }
 
+.trainer-list group-gap p, .trainer-list group-gap a {
+  text-align: center;
+}
+         
 /* Top part: names + designation */
 .trainer-list .trainer-top p, .trainer-list .trainer-top a {
   margin-bottom: 10px;       /* 👈 adjust spacing between top & bottom */
@@ -961,6 +965,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
