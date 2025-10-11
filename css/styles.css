@@ -469,6 +469,7 @@ footer {
   --gallery-offset: 15px 0;
 
 .project-page {
+  margin-left: 350px;
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -962,6 +963,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
