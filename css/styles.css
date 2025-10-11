@@ -469,7 +469,6 @@ footer {
   --gallery-offset: 15px 0;
 
 .project-page {
-  margin-left: 350px;
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -524,6 +523,7 @@ footer {
 
 /* TEXT PANEL (first column) — fixed width and vertically centered */
 .panel-text {
+  margin-left: 350px;
   width: 500px;              /* exact width you wanted */
   flex-shrink: 0;
   display: flex;             /* make this panel a flex column */
@@ -962,6 +962,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
