@@ -465,11 +465,11 @@ footer {
 /* Root variables for consistent spacing */
 :root {
   --sidebar-offset: 350px;     /* same width offset as your sidebar */
-  --gallery-height: 350px;     /* height of bottom carousel */
+  --gallery-height: 280px;     /* height of bottom carousel */
          
 body.project-inner-body {
   overflow-y: hidden;   /* ❌ no vertical scrollbars */
-  overflow-x: hidden;   /* optional: if you want only drag/trackpad horizontal scroll */
+  overflow-x: auto;
 }
 
 .project-page {
@@ -539,6 +539,17 @@ body.project-inner-body {
   margin-top: 0;
   margin-bottom: 0;
 }
+
+.project-track::-webkit-scrollbar {
+  height: 8px;
+}
+.project-track::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.3);
+  border-radius: 4px;
+}
+.project-track::-webkit-scrollbar-track {
+  background: transparent;
+}   
    
 /* ---------- CONTACT PAGE ---------- */
 body.contact-page-body {
@@ -935,6 +946,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
