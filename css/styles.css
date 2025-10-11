@@ -466,11 +466,7 @@ footer {
 :root {
   --sidebar-offset: 350px;     /* same width offset as your sidebar */
   --gallery-height: 280px;     /* height of bottom carousel */
-         
-body.project-inner-body {
-  overflow-y: hidden;   /* ❌ no vertical scrollbars */
-  overflow-x: auto;
-}
+  --gallery-height: 30px;
 
 .project-page {
   position: relative;
@@ -549,6 +545,19 @@ body.project-inner-body {
 }
 .project-track::-webkit-scrollbar-track {
   background: transparent;
+}   
+
+/* Prevent sidebar link color change on project pages */
+body.project-page .sidebar a,
+body.project-page .sidebar a:visited,
+body.project-page .sidebar a:focus,
+body.project-page .sidebar a:active {
+  color: inherit !important;      /* use the default sidebar text color */
+}
+
+/* Ensure hover still works if you want */
+body.project-page .sidebar a:hover {
+  color: var(--hover-color); /* or whatever hover color you want */
 }   
    
 /* ---------- CONTACT PAGE ---------- */
@@ -946,6 +955,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
