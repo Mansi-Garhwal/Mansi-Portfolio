@@ -372,7 +372,10 @@ footer {
 /* Trainer info blocks */
 .trainer-list p, .trainer-list a {
   text-align: center;
-  margin-bottom: 30px;
+}
+
+.trainer-list, .trainer-list a {
+  text-align: center;
 }
          
 /* Top part: names + designation */
@@ -391,6 +394,7 @@ footer {
   font-size: 0.7rem;         /* ~13px */
   letter-spacing: 0.5px;
   color: #555;
+  margin-bottom: 30px;
 }
 
 /* -------- WORK PAGE -------- */
@@ -961,6 +965,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
