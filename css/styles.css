@@ -469,7 +469,6 @@ footer {
   --gallery-offset: 15px 0;
 
 .project-page {
-  margin-left: 350px;
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -482,6 +481,7 @@ footer {
 /* NOTE: match the class used in your HTML. If your track element's class is "track",
    use .track below; if it's class="project-track" use that instead. */
 .class, .project-track {
+  padding-left: 350px;
   display: flex;
   align-items: center;
   gap: 10px; /* spacing between images */
@@ -962,6 +962,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
