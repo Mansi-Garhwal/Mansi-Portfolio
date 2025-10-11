@@ -466,41 +466,60 @@ footer {
 :root {
   --sidebar-offset: 350px;     /* same width offset as your sidebar */
   --gallery-height: 280px;     /* height of bottom carousel */
-  --gallery-height: 15px;
+  --gallery-offset: 15px 0;
 
 .project-page {
   position: relative;
-  margin: 37.5px 30px 37.5px 0;      /* left margin removed so sidebar can overlap */
-  height: calc(100vh - 75px);
-  overflow: hidden;
-  display: flex;
-  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 /* NOTE: match the class used in your HTML. If your track element's class is "track",
    use .track below; if it's class="project-track" use that instead. */
 .class, .project-track {
+  padding-left: 350px;
   display: flex;
-  gap: 30px;
+  align-items: center;
+  gap: 3px; /* spacing between images */
   height: 100%;
   will-change: transform;
   transform: translate3d(0,0,0);
+  /* scrollbar */
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.3) transparent;
 }
-.class::-webkit-scrollbar, .project-track::-webkit-scrollbar { display: none; }
 
+.class::-webkit-scrollbar, .project-track::-webkit-scrollbar { 
+  display: 8px;
+}
+
+.class::-webkit-scrollbar-thumb, .project-track::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.3);
+  border-radius: 4px;
+}
+
+.class::-webkit-scrollbar-track, .project-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+   
 /* PANEL base */
 .panel {
+  margin: 15px 0;
+  height: calc(100vh - 75px);
+  width: auto;
+  object-fit: cover;
   flex-shrink: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;       /* centers children vertically by default */
-  justify-content: center;
-  box-sizing: border-box;
+  border-radius: 0px;
+  display: block;
+  user-drag: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* TEXT PANEL (first column) — fixed width and vertically centered */
@@ -535,17 +554,6 @@ footer {
   margin-top: 0;
   margin-bottom: 0;
 }
-
-.project-track::-webkit-scrollbar {
-  height: 8px;
-}
-.project-track::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.3);
-  border-radius: 4px;
-}
-.project-track::-webkit-scrollbar-track {
-  background: transparent;
-}   
 
 /* Prevent sidebar link color change on project pages */
 body.project-page .sidebar a,
@@ -955,6 +963,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
