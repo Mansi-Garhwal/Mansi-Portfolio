@@ -370,7 +370,7 @@ footer {
 }
 
 /* Trainer info blocks */
-.trainer-list p, .trainer-list a {
+.grid-item d1 p, .grid-item d1 a, .grid-item d2 p, .grid-item d2 a {
   text-align: center;
   gap: 30px;
 }
@@ -961,6 +961,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
