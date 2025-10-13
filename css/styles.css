@@ -376,7 +376,7 @@ footer {
 }
 
 /* Top part: names + designation */
-.trainer-list .trainer-top p, .trainer-list .trainer-top a {
+.trainer-top p, .trainer-top a {
   margin-bottom: 10px;       /* 👈 adjust spacing between top & bottom */
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;           /* ~16px */
@@ -386,7 +386,7 @@ footer {
 }
 
 /* Bottom part: address / details */
-.trainer-list .trainer-bottom p, .trainer-list .trainer-bottom a {
+.trainer-bottom p, .trainer-bottom a {
   font-family: 'Poppins', sans-serif;
   font-size: 0.7rem;         /* ~13px */
   letter-spacing: 0.5px;
@@ -962,6 +962,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
