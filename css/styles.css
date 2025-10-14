@@ -336,6 +336,7 @@ footer {
    flex-direction: column;
    align-items: center;
    margin-bottom: 15px;
+   gap: 15px;
 }
          
 .skill-list p {
@@ -963,6 +964,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
