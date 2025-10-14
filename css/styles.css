@@ -373,10 +373,11 @@ footer {
 /* Trainer info blocks */
 .trainer-list p, .trainer-list a {
   text-align: center;
+  margin-bottom: 10px;
 }
 
 /* Top part: names + designation */
-.trainer-top p, .trainer-top a {
+.grid-item .trainer-top p, .grid-item .trainer-top a {
   margin-bottom: 15px;       /* 👈 adjust spacing between top & bottom */
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;           /* ~16px */
@@ -386,7 +387,7 @@ footer {
 }
 
 /* Bottom part: address / details */
-.trainer-bottom p, .trainer-bottom a {
+.grid-item .trainer-bottom p, .grid-item .trainer-bottom a {
   font-family: 'Poppins', sans-serif;
   font-size: 0.7rem;         /* ~13px */
   letter-spacing: 0.5px;
@@ -962,6 +963,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
