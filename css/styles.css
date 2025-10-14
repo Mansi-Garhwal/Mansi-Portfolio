@@ -331,7 +331,14 @@ footer {
 }
 
 /* skills */
-.skill-list {
+.c1 .skill-list {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-bottom: 15px;
+}
+
+.c2 .skill-list {
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -374,7 +381,7 @@ footer {
 /* Trainer info blocks */
 .trainer-list p, .trainer-list a {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 /* Top part: names + designation */
@@ -964,6 +971,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
