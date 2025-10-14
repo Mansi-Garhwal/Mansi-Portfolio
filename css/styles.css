@@ -399,7 +399,7 @@ footer {
   font-size: 0.9rem;         /* ~13px */
   letter-spacing: 0.5px;
   color: #555;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 /* -------- WORK PAGE -------- */
@@ -970,6 +970,7 @@ body.contact-page-body {
     color: var(--char);      /* look like plain text */
   }
 }
+
 
 
 
