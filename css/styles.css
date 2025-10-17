@@ -678,64 +678,93 @@ body.contact-page-body {
 
 /* ======= MOBILE TWEAKS (strong overrides) ======= */
 @media (max-width: 899px) {
-  /* Make hamburger visible */
-  .hamburger {
-    display: inline-flex;    /* show it on mobile */
-    font-size: 1.2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-  }
 
-  /* Top bar style for sidebar on mobile */
-  .sidebar {
+   .topbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: auto;
-    background: rgba(255,255,255,0.97);
-    backdrop-filter: blur(4px);
-    padding: 12px 16px;
+    height: 56px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    z-index: 2000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-    transform: translateY(0);
+    justify-content: space-between;
+    padding: 0 14px;
+    z-index: 2200;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+  }
+   
+  /* Make hamburger visible */
+  .hamburger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 6px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .sidebar .logo { font-size: 1.05rem; }
-  /* hide full nav by default and show on .open */
+  .hamburger .bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin: 3px 0;
+    background: var(--char, #111);
+    transition: transform .25s ease, opacity .2s ease;
+  }
+   
+  .sidebar.open .hamburger .bar:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+  .sidebar.open .hamburger .bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .sidebar.open .hamburger .bar:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+  /* Keep logo visible and compact on mobile */
+  .topbar .logo {
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* Mobile nav drop-down: hidden by default, shown when .sidebar.open */
   .sidebar .sidebar-nav {
     display: none;
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
-    top: 56px; /* below the top bar */
-    background: white;
+    top: 56px;
+    z-index: 2150;
+    background: #fff;
     padding: 18px 16px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
+    align-items: flex-start;
   }
-  /* show nav when .open */
   .sidebar.open .sidebar-nav {
     display: flex;
   }
-
-  /* Sidebar footer (socials) tucked into the expanded nav */
-  .sidebar .sidebar-footer {
-    display: none;
+  /* large touch targets for links */
+  .sidebar .sidebar-nav a {
+    text-decoration: none;
+    font-size: 1.02rem;
+    padding: 8px 6px;
+    color: var(--char, #111);
+    width: 100%;
+    display: inline-block;
   }
-  .sidebar.open .sidebar-footer {
-    display: block;
-    padding: 12px 16px;
-    border-top: 1px solid #f0f0f0;
-    margin-top: 12px;
-  }
+  .sidebar .sidebar-footer { display: none; }        /* hidden until open */
+  .sidebar.open .sidebar-footer { display: block; }  /* shown inside expanded nav */
 
+  /* Make sure main content is pushed below the topbar on mobile */
+  main, .home, .work-page, .project-page, .gallery-container {
+    padding-top: 66px !important; /* ensures content not hidden under topbar */
+    box-sizing: border-box;
+  }
+   
   /* Ensure main content is not hidden under the top bar */
   body:not(.home) .work-page,
   body:not(.home) .about-grid,
@@ -835,3 +864,4 @@ html, body {
   overscroll-behavior: auto !important;
   touch-action: auto !important;
 }
+
