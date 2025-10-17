@@ -699,30 +699,54 @@ body.contact-page-body {
 
   /* Hamburger */
   .hamburger {
-    display: flex;
-    flex-direction: column;
+    display: inline-flex !important;
+    align-items: center;
     justify-content: center;
-    gap: 4px;
-    background: none;
+    width: 44px;
+    height: 44px;
+    background: transparent;
     border: none;
-    cursor: pointer;
+    z-index: 2500 !important;
+    position: relative;
+    margin-left: auto;
   }
+   
   .hamburger .bar {
-    width: 22px;
-    height: 2px;
-    background: #000;
-    transition: all 0.3s;
+    width: 22px !important;
+    height: 2px !important;
+    background: #000 !important;
+    display: block !important;
   }
+   
   .sidebar.open .hamburger .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   .sidebar.open .hamburger .bar:nth-child(2) { opacity: 0; }
   .sidebar.open .hamburger .bar:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
+  .sidebar .sidebar-nav {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .sidebar.open .sidebar-nav {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    flex-direction: column;
+  }
+
+  .sidebar .desktop-only, .nav-desktop, nav.desktop-nav {
+    display: none !important;
+  }
+   
   /* Nav dropdown */
   .sidebar-nav, .sidebar-footer {
     display: none;
   }
-  .sidebar.open .sidebar-nav,
-  .sidebar.open .sidebar-footer {
+   
+  .sidebar.open .sidebar-nav, .sidebar.open .sidebar-footer {
     display: flex;
     flex-direction: column;
     background: #fff;
@@ -777,6 +801,3 @@ html, body {
   overscroll-behavior: auto !important;
   touch-action: auto !important;
 }
-
-
-
