@@ -1,20 +1,12 @@
-// js/menu.js — updated
-// - Toggles .sidebar.open on hamburger click
-// - Updates ARIA attributes for accessibility
-// - Prevents background scroll when mobile menu is open
-// - Closes on link click, outside click, or Escape key
-// - Defensive: will not run if expected elements are missing
-
+// js/menu.js — updated for mobile topbar + dropdown
 document.addEventListener('DOMContentLoaded', () => {
   const sidebar = document.querySelector('.sidebar');
   const hamburger = document.querySelector('.hamburger');
-  // mobile nav that we show/hide (may be inside sidebar)
-  const mobileNav = document.getElementById('mobile-nav') || document.querySelector('.sidebar-nav');
+  const mobileNav = document.getElementById('mobile-nav');
+  const sidebarFooter = sidebar ? sidebar.querySelector('.sidebar-footer') : null;
 
-  // Defensive: if no sidebar or hamburger, do nothing (preserves desktop)
   if (!sidebar || !hamburger) return;
 
-  // Utility: lock/unlock body scroll (used when menu opens)
   const lockScroll = () => {
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
@@ -24,67 +16,68 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   };
 
-  // Toggle function used by click handler (kept idempotent)
-  function toggleSidebar(open = undefined) {
-    const isOpen = typeof open === 'boolean' ? open : !sidebar.classList.contains('open');
-    sidebar.classList.toggle('open', isOpen);
-    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  function openMenu() {
+    sidebar.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    if (mobileNav) mobileNav.setAttribute('aria-hidden', 'false');
+    if (sidebarFooter) sidebarFooter.setAttribute('aria-hidden', 'false');
+    lockScroll();
 
-    if (mobileNav) mobileNav.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
-
-    if (isOpen) lockScroll();
-    else unlockScroll();
+    // focus first link for accessibility
+    const firstLink = mobileNav ? mobileNav.querySelector('a') : sidebar.querySelector('a');
+    if (firstLink) firstLink.focus();
   }
 
-  // Primary click handler for hamburger
+  function closeMenu() {
+    sidebar.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    if (mobileNav) mobileNav.setAttribute('aria-hidden', 'true');
+    if (sidebarFooter) sidebarFooter.setAttribute('aria-hidden', 'true');
+    unlockScroll();
+    hamburger.focus();
+  }
+
+  function toggleMenu() {
+    if (sidebar.classList.contains('open')) closeMenu();
+    else openMenu();
+  }
+
   hamburger.addEventListener('click', (e) => {
-    e.stopPropagation(); // so click-outside handler doesn't close immediately
-    toggleSidebar();
+    e.stopPropagation();
+    toggleMenu();
   });
 
-  // Close menu when any nav link is clicked (keeps desktop unchanged)
-  const links = sidebar.querySelectorAll('.sidebar-nav a, #mobile-nav a');
-  links.forEach(link => {
-    link.addEventListener('click', () => {
-      toggleSidebar(false);
-    });
+  // Close when clicking on any nav link (so menu collapses after navigation)
+  sidebar.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (!a) return;
+    // If link points to same page anchor or external, still close
+    closeMenu();
   });
 
-  // Close when clicking outside the sidebar (mobile-friendly)
+  // Click outside to close
   document.addEventListener('click', (e) => {
     if (!sidebar.classList.contains('open')) return;
-    // if click happens inside sidebar or on hamburger, ignore
     if (sidebar.contains(e.target) || hamburger.contains(e.target)) return;
-    toggleSidebar(false);
+    closeMenu();
   });
 
-  // Close on Escape key for accessibility
+  // Escape closes
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && sidebar.classList.contains('open')) {
-      toggleSidebar(false);
-      hamburger.focus();
+      closeMenu();
     }
   });
 
-  // Optional: close the menu when the viewport is resized to desktop (prevents stale open state)
-  // This keeps desktop layout safe: if window becomes >=900px, remove open state and unlock scroll.
+  // If viewport goes to desktop width, ensure we close menu and unlock scroll
   window.addEventListener('resize', () => {
-    try {
-      if (window.innerWidth >= 900 && sidebar.classList.contains('open')) {
-        toggleSidebar(false);
-      }
-    } catch (err) { /* noop */ }
-  });
-
-  // Helpful small enhancement: if the sidebar contains a focusable first link, move focus there when opened
-  const firstLink = sidebar.querySelector('.sidebar-nav a, #mobile-nav a');
-  const observer = new MutationObserver(() => {
-    if (sidebar.classList.contains('open') && firstLink) {
-      firstLink.focus();
+    if (window.innerWidth >= 900 && sidebar.classList.contains('open')) {
+      closeMenu();
     }
   });
-  observer.observe(sidebar, { attributes: true, attributeFilter: ['class'] });
 
-  // Keep original behavior: leave a console message (non-essential)
-  console.log('✅ menu.js loaded — hamburger & sidebar handlers active');
+  // Initial ARIA state
+  hamburger.setAttribute('aria-expanded', sidebar.classList.contains('open') ? 'true' : 'false');
+  if (mobileNav) mobileNav.setAttribute('aria-hidden', sidebar.classList.contains('open') ? 'false' : 'true');
+  if (sidebarFooter) sidebarFooter.setAttribute('aria-hidden', sidebar.classList.contains('open') ? 'false' : 'true');
 });
