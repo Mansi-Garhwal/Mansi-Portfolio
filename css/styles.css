@@ -769,11 +769,14 @@ body.contact-page-body {
   }
 }
 
+/* ===================== DESKTOP/LAPTOP LAYOUT ===================== */
+         
 body:not(.home) { overflow: auto; }
 
 html, body {
   overscroll-behavior: auto !important;
   touch-action: auto !important;
 }
+
 
 
