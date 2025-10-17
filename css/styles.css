@@ -24,7 +24,14 @@ body { font-family: 'Poppins', sans-serif; color: var(--char); }
 @media (min-width: 900px) {
 
 body.home { overflow: hidden; }   
-   
+
+body:not(.home) { overflow: auto; }
+
+  html, body {
+    overscroll-behavior: auto;
+    touch-action: auto;
+  }
+
 /* DESKTOP/LAPTOP ONLY */
 .hamburger {
   display: none;   /* never show on laptop */
@@ -962,11 +969,4 @@ body.contact-page-body {
     text-decoration: none;   /* remove underline */
     color: var(--char);      /* look like plain text */
   }
-}
-/* ===================== DESKTOP/LAPTOP LAYOUT ===================== */
-         
-body:not(.home) { overflow: auto; }
-
-html, body {
-  overscroll-behavior: auto;
 }
