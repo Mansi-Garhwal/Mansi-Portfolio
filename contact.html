@@ -8,19 +8,21 @@
 </head>
 <body class="contact-page-body">
 
-  <!-- Sidebar (same as site) -->
+  <!-- SIDEBAR / TOP-BAR (same markup for desktop & mobile) -->
   <aside class="sidebar" aria-label="Main navigation">
-
-  <div class="sidebar-top">  
-    <a href="index.html" class="logo">MANSI GARHWAL</a>
-    <!-- MOBILE ONLY -->
-    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
-  </div>
+    <div class="sidebar-top">
+      <a href="index.html" class="logo">MANSI GARHWAL</a>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+      </button>
+    </div>
     
-    <nav class="sidebar-nav" aria-label="Site pages">
+    <nav id="mobile-nav" class="sidebar-nav" aria-label="Site pages" aria-hidden="true">
       <a href="about.html">ABOUT</a>
       <a href="work.html">WORK</a>
-      <a href="contact.html" class="active">CONTACT</a>
+      <a href="contact.html">CONTACT</a>
     </nav>
     
     <!-- Sidebar Footer (icons only) -->
@@ -86,6 +88,7 @@
   <script src="js/menu.js"></script>
 </body>
 </html>
+
 
 
 
