@@ -793,6 +793,45 @@ body.contact-page-body {
   }
 }
 
+/* FORCE mobile: hide desktop nav, show hamburger, dropdown only when .open */
+@media (max-width: 899px) {
+  /* ensure topbar layout */
+  .sidebar { position: fixed !important; top: 0; left: 0; right: 0; height: 60px; z-index: 3000; display: flex !important; align-items: center; justify-content: space-between; padding: 0 14px; background: #fff; }
+
+  /* show hamburger */
+  .sidebar .hamburger { display: inline-flex !important; z-index: 3100 !important; background: transparent; border: 0; width:44px; height:44px; align-items:center; justify-content:center; }
+
+  /* make bars visible */
+  .sidebar .hamburger .bar { display:block !important; width:22px !important; height:2px !important; background:#000 !important; }
+
+  /* hide nav + footer by default */
+  .sidebar .sidebar-nav,
+  .sidebar .sidebar-footer { display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
+
+  /* when sidebar has .open show nav + footer */
+  .sidebar.open .sidebar-nav,
+  .sidebar.open .sidebar-footer {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    flex-direction: column;
+    position: fixed !important;
+    top: 60px !important;
+    left: 0; right: 0;
+    padding: 14px !important;
+    background: #fff !important;
+    z-index: 3050 !important;
+  }
+
+  /* guard against other selectors that may force nav visible */
+  .sidebar .nav, .sidebar nav, nav.sidebar-nav, .nav-mobile { display: none !important; }
+
+  /* ensure logo stays left, hamburger right */
+  .sidebar .logo { order: 0; }
+  .sidebar .hamburger { order: 1; margin-left: auto; }
+}
+
 /* ===================== DESKTOP/LAPTOP LAYOUT ===================== */
          
 body:not(.home) { overflow: auto; }
