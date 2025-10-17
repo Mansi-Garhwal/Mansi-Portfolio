@@ -676,57 +676,158 @@ body.contact-page-body {
          
 /* ===================== MOBILE LAYOUT ===================== */
 
+/* ======= MOBILE TWEAKS (strong overrides) ======= */
 @media (max-width: 899px) {
+  /* Make hamburger visible */
+  .hamburger {
+    display: inline-flex;    /* show it on mobile */
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
 
-  body.home { overflow: auto; }
-   
-  /* mobile overrides for the main grid */
-.about-grid {
-  grid-template-columns: 1fr !important;
-  grid-auto-rows: auto !important;
-  margin-left: 0 !important;
-  padding: 20px 16px !important;
-  row-gap: 28px !important;
-  column-gap: 0 !important;
-  box-sizing: border-box;
-}
+  /* Top bar style for sidebar on mobile */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(4px);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 2000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    transform: translateY(0);
+  }
 
-.about-grid > .grid-item {
-  align-items: flex-start !important;
-  text-align: left !important;
-  width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
+  .sidebar .logo { font-size: 1.05rem; }
+  /* hide full nav by default and show on .open */
+  .sidebar .sidebar-nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 56px; /* below the top bar */
+    background: white;
+    padding: 18px 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    flex-direction: column;
+    gap: 12px;
+  }
+  /* show nav when .open */
+  .sidebar.open .sidebar-nav {
+    display: flex;
+  }
 
-/* skill list vertical spacing */
-.skill-list {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  gap: 18px !important;
-  margin-bottom: 16px !important;
-}
+  /* Sidebar footer (socials) tucked into the expanded nav */
+  .sidebar .sidebar-footer {
+    display: none;
+  }
+  .sidebar.open .sidebar-footer {
+    display: block;
+    padding: 12px 16px;
+    border-top: 1px solid #f0f0f0;
+    margin-top: 12px;
+  }
 
-/* stack trainer columns */
-.d1, .d2 {
-  grid-column: 1 / -1 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 20px !important;
-  padding: 0 !important;
-}
-.trainer-list {
-  width: 100% !important;
-  text-align: left !important;
-  padding: 8px 0 !important;
-  box-sizing: border-box;
-}
-.trainer-top { font-size: 0.95rem !important; line-height: 1.4 !important; }
-.trainer-bottom { font-size: 0.62rem !important; line-height: 1.5 !important; }
+  /* Ensure main content is not hidden under the top bar */
+  body:not(.home) .work-page,
+  body:not(.home) .about-grid,
+  .gallery-container,
+  .project-page,
+  .contact-page {
+    padding-top: 72px; /* height of top bar (adjust if you change top bar) */
+    margin-left: 0 !important;
+  }
 
-/* prevent image overflow */
-.a2 img, img { max-width: 100% !important; height: auto !important; }
+  /* Remove big left padding on gallery/project tracks on mobile */
+  .gallery-track,
+  .project-track {
+    padding-left: 0 !important;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    overflow-x: auto;
+    flex-wrap: nowrap; /* keep horizontal scroll if you want; see alternate below */
+  }
+
+  /* Make home images responsive and not full-viewport height */
+  .gallery-track img {
+    height: auto !important;
+    max-height: 60vh !important;
+    width: auto;
+    max-width: 95vw;
+    margin: 12px;
+    object-fit: cover;
+  }
+
+  /* Work/project grid -> single column or 2 columns (change to 1 if you want) */
+  .project-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 16px !important;
+  }
+
+  /* Project page: stack panels vertically for mobile (more natural) */
+  .project-track {
+    display: block !important;
+    padding-left: 0 !important;
+  }
+  .project-track .panel-text,
+  .project-track .panel-image {
+    width: 100% !important;
+    height: auto !important;
+    margin: 12px 0 !important;
+    box-sizing: border-box;
+  }
+  .panel-text {
+    width: auto !important;
+    padding: 12px 16px !important;
+  }
+  .panel-text .panel-inner {
+    max-width: 100% !important;
+  }
+  .panel-image img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 60vh !important;
+  }
+
+  /* Contact page: make columns stack */
+  .contact-page {
+    flex-direction: column;
+    padding-top: 72px;
+    gap: 20px;
+    align-items: stretch;
+    height: auto;
+  }
+  .contact-left, .contact-right {
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+  .contact-icons {
+    align-items: flex-start;
+  }
+
+  /* Reduce excessive font sizes / spacings */
+  .about-grid {
+    padding: 16px !important;
+  }
+
+  /* small touch targets for social icons */
+  .sidebar-socials img {
+    width: 26px;
+    height: 26px;
+  }
+}
 
 body:not(.home) { overflow: auto; }
 
@@ -734,4 +835,5 @@ html, body {
   overscroll-behavior: auto !important;
   touch-action: auto !important;
 }
+
 
