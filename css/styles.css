@@ -19,12 +19,12 @@ html,body { height: 100%; }
 
 /* BODY: no HOME background color here (kept neutral) */
 body { font-family: 'Poppins', sans-serif; color: var(--char); }
-body.home { overflow: hidden; }
-body:not(.home) { overflow: auto; }
 
-/* ---------- SIDEBAR (consistent on all pages) ---------- */
-@media (min-width: 769px) {
+/* ===================== DESKTOP/LAPTOP LAYOUT ===================== */
+@media (min-width: 900px) {
 
+body.home { overflow: hidden; }   
+   
 /* DESKTOP/LAPTOP ONLY */
 .hamburger {
   display: none;   /* never show on laptop */
@@ -676,8 +676,10 @@ body.contact-page-body {
          
 /* ===================== MOBILE LAYOUT ===================== */
 
-@media (max-width: 768px) {
+@media (max-width: 899px) {
 
+  body.home { overflow: auto; }
+   
   /* Collapse grid and remove sidebar offset on mobile */
   .about-grid {
     grid-template-columns: 1fr !important;
@@ -749,4 +751,11 @@ body.contact-page-body {
     padding: 6px; 
     z-index: 99999;
   } */
+}
+
+body:not(.home) { overflow: auto; }
+
+html, body {
+  overscroll-behavior: auto !important;
+  touch-action: auto !important;
 }
