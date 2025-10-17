@@ -675,16 +675,30 @@ body.contact-page-body {
 }
          
 /* ===================== MOBILE LAYOUT ===================== */
-
 @media (max-width: 899px) {
-  /* ensure normal document scrolling on home */
-  body.home { overflow: auto; }
 
-  /* ---------- TOPBAR / HAMBURGER (reuses .sidebar to avoid changing desktop) ---------- */
-  .topbar, .sidebar.sidebar-top {
-    /* only visual: we style .topbar via .sidebar on mobile — desktop sidebar unaffected */
+  /* ----------------- global viewport safety (prevent accidental page overflow) ----------------- */
+  /* Reason: keep the page fixed to device width; only purposeful containers can scroll horizontally. */
+  html, body {
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;            /* prevent page-level horizontal scroll */
+    -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
+  }
+  /* Ensure main wrappers respect viewport */
+  main, .site, .page-wrap, .home, .gallery-container {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
+  /* Ensure home vertical scroll remains normal */
+  body.home { overflow-y: auto; }
+
+  /* ----------------- TOPBAR / HAMBURGER (re-uses .sidebar so desktop unaffected) ----------------- */
+  /* Reason: reuse .sidebar so your desktop left-sidebar remains unchanged. This block only runs on mobile. */
   .sidebar {
     position: fixed;
     top: 0;
@@ -700,13 +714,13 @@ body.contact-page-body {
     backdrop-filter: blur(4px);
     box-shadow: 0 1px 8px rgba(0,0,0,0.04);
   }
-
   .sidebar .logo {
-     font-size: 0.95rem;
-     font-weight: 600;
-     letter-spacing: .02em;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: .02em;
   }
 
+  /* Hamburger button (three bars), animated to X when .sidebar.open */
   .hamburger {
     display: inline-flex;
     align-items: center;
@@ -719,7 +733,6 @@ body.contact-page-body {
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
-   
   .hamburger .bar {
     display: block;
     width: 20px;
@@ -728,12 +741,11 @@ body.contact-page-body {
     background: var(--char, #111);
     transition: transform .25s ease, opacity .18s ease;
   }
-
-  /* animate hamburger -> X when menu open (JS toggles .sidebar.open) */
   .sidebar.open .hamburger .bar:nth-child(1) { transform: translateY(5px) rotate(45deg); }
   .sidebar.open .hamburger .bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
   .sidebar.open .hamburger .bar:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
 
+  /* Mobile nav dropdown - hidden until .sidebar.open */
   .sidebar .sidebar-nav {
     display: none;
     position: fixed;
@@ -748,11 +760,7 @@ body.contact-page-body {
     gap: 14px;
     align-items: flex-start;
   }
-  
-  .sidebar.open .sidebar-nav {
-    display: flex;
-  }
-
+  .sidebar.open .sidebar-nav { display: flex; }
   .sidebar .sidebar-nav a {
     text-decoration: none;
     font-size: 1.02rem;
@@ -761,21 +769,17 @@ body.contact-page-body {
     width: 100%;
     display: inline-block;
   }
-  
-  .sidebar .sidebar-footer {
-    display: none;
-  }
-  
-  .sidebar.open .sidebar-footer {
-    display: block;
-  }
+  .sidebar .sidebar-footer { display: none; }
+  .sidebar.open .sidebar-footer { display: block; padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.03); }
 
+  /* Prevent content being hidden under topbar */
   main, .home, .work-page, .project-page, .gallery-container, .about-grid, .contact-page {
-    padding-top: 66px !important; /* allow space for fixed topbar */
+    padding-top: 66px !important;
     box-sizing: border-box;
   }
 
-  /* ========== HOME HERO (Platform21-inspired, optional) ========== */
+  /* ----------------- HOME HERO (Platform21-like) ----------------- */
+  /* Optional — leave in, works if you add .home-hero markup */
   .home-hero {
     position: relative;
     width: 100%;
@@ -786,7 +790,6 @@ body.contact-page-body {
     justify-content: center;
     background: #000;
   }
-  
   .home-hero img, .home-hero .hero-bg {
     position: absolute;
     inset: 0;
@@ -794,7 +797,6 @@ body.contact-page-body {
     height: 100%;
     object-fit: cover;
   }
-  
   .home-hero::after {
     content: "";
     position: absolute;
@@ -802,7 +804,6 @@ body.contact-page-body {
     background: linear-gradient(rgba(0,0,0,0.06), rgba(0,0,0,0.18));
     pointer-events: none;
   }
-
   .hero-caption {
     position: relative;
     z-index: 2100;
@@ -814,41 +815,55 @@ body.contact-page-body {
     color: #fff;
     line-height: 1.15;
   }
-   
   @media (max-width:420px) {
     .hero-caption { font-size: 0.95rem; }
   }
 
-  /* ========== GALLERY & PROJECT TRACK MOBILE FIXES ========== */
-
-  .gallery-track, .project-track {
-    padding-left: 0 !important;      /* remove desktop spacer on mobile */
-    height: auto;
+  /* ----------------- HORIZONTAL SCROLL CONTROL (fixes "fishy width" issue) ----------------- */
+  /* Reason: lock page width, but allow intentional scrollers to horizontally overflow and be swiped. */
+  /* Deliberate scrollers: gallery-track, project-track, carousels, horizontal project tracks */
+  .gallery-track,
+  .project-track,
+  .gallery-container .carousel,
+  .project-page .horizontal-track {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+    width: 100vw !important;
+    max-width: 100vw !important;
     display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    overflow-x: auto;
     flex-wrap: nowrap;
+    gap: 12px;
+    box-sizing: border-box;
   }
 
-  .gallery-track img,
-  .project-track img,
-  .panel-image img,
-  .gallery-container img {
+  /* Make sure children inside scrollers don't cause page overflow */
+  .gallery-track > *, .project-track > *, .gallery-track img, .project-track img {
+    min-width: 60vw;        /* comfortable card width — adjust to taste (45vw-80vw) */
+    max-width: 100vw;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+  }
+
+  /* Collapse any desktop spacer that'll push content right (very common offender) */
+  .gallery-spacer, .sidebar-spacer { display: none !important; }
+
+  /* Images: always constrained to viewport */
+  img, .panel-image img, .gallery-container img {
+    max-width: 100% !important;
+    width: auto;
     height: auto !important;
-    max-height: 60vh !important;     /* prevents images filling more than 60% of viewport height */
-    width: 100% !important;
-    max-width: 95vw !important;
-    object-fit: cover;
-    margin: 12px;
     display: block;
+    object-fit: cover;
   }
 
+  /* ----------------- PROJECT / PANELS mobile behaviour ----------------- */
+  /* Stack project panels vertically (more natural on phones) */
   .project-track {
-    display: block !important;      /* stack panels vertically for readability */
+    display: block !important;
     padding-left: 0 !important;
   }
-   
   .project-track .panel-text,
   .project-track .panel-image {
     width: 100% !important;
@@ -856,76 +871,55 @@ body.contact-page-body {
     margin: 12px 0 !important;
     box-sizing: border-box;
   }
-   
   .panel-text { padding: 12px 16px !important; }
   .panel-text .panel-inner { max-width: 100% !important; }
 
-  .project-grid {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-    padding: 16px !important;
+  /* Project page images scaled down for phone ergonomics */
+  .panel-image img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 60vh !important;
   }
 
+  /* ----------------- OTHER LAYOUT TWEAKS (ABOUT / CONTACT / GRIDS) ----------------- */
   .about-grid {
     grid-template-columns: 1fr !important;
+    grid-auto-rows: auto !important;
     margin-left: 0 !important;
     padding: 20px 16px !important;
     row-gap: 28px !important;
-  }
-  
-  .about-grid > .grid-item {
-    width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    text-align: left !important;
-  }
-  
-  .contact-page {
-    flex-direction: column !important;
-    padding-top: 66px !important;
-    gap: 20px;
-  }
-  
-  .contact-left, .contact-right {
-    width: 100%;
-    padding: 0 16px;
+    column-gap: 0 !important;
     box-sizing: border-box;
   }
-
-  .sidebar-socials img {
-    width: 26px;
-    height: 26px;
+  .about-grid > .grid-item {
+    align-items: flex-start !important;
+    text-align: left !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
-  .home-hero, .gallery-track, .project-track {
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-y;
-  }
+  .project-grid { grid-template-columns: 1fr !important; gap: 12px !important; padding: 16px !important; }
 
-  .sidebar .sidebar-nav a:focus {
-    outline: 3px solid rgba(0,0,0,0.08);
-    outline-offset: 4px;
-  }
+  .contact-page { flex-direction: column !important; padding-top: 66px !important; gap: 20px; }
+  .contact-left, .contact-right { width: 100%; padding: 0 16px; box-sizing: border-box; }
 
+  /* Small touch targets for social icons */
+  .sidebar-socials img { width: 26px; height: 26px; }
+
+  /* Keep touch scrolling natural on mobile scrollers */
+  .home-hero, .gallery-track, .project-track { -webkit-overflow-scrolling: touch; touch-action: pan-y; }
+
+  /* Focus outline for a11y inside mobile nav */
+  .sidebar .sidebar-nav a:focus { outline: 3px solid rgba(0,0,0,0.08); outline-offset: 4px; }
+
+  /* ----------------- desktop-safety fallback when resized back to desktop ----------------- */
   @media (min-width: 900px) {
-    .sidebar {
-      position: static !important;
-      height: auto !important;
-      box-shadow: none !important;
-      background: none !important;
-    }
-
-    .sidebar .sidebar-nav {
-      display: block !important;
-      position: static !important;
-      padding: 0 !important;
-      box-shadow: none !important;
-    }
-    
-    .sidebar.open { /* remove visual stacking on desktop */ }
+    .sidebar { position: static !important; height: auto !important; box-shadow: none !important; background: none !important; }
+    .sidebar .sidebar-nav { display: block !important; position: static !important; padding: 0 !important; box-shadow: none !important; }
+    .gallery-track, .project-track { overflow-x: auto; } /* restore original behaviour on desktop */
   }
 }
-
 /* ===================== END MOBILE LAYOUT BLOCK ===================== */
 
 body:not(.home) { overflow: auto; }
@@ -934,5 +928,6 @@ html, body {
   overscroll-behavior: auto !important;
   touch-action: auto !important;
 }
+
 
 
