@@ -15,7 +15,7 @@
 
 /* Reset */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html,body { height: 100%; }
+html,body { min-height: 100%; }
 
 /* BODY: no HOME background color here (kept neutral) */
 body { font-family: 'Poppins', sans-serif; color: var(--char); }
@@ -968,8 +968,5 @@ body.contact-page-body {
 body:not(.home) { overflow: auto; }
 
 html, body {
-  overscroll-behavior: auto !important;
-  touch-action: auto !important;
+  overscroll-behavior: auto;
 }
-
-
