@@ -1231,6 +1231,7 @@ body.project-page, .project-page {
 .contact-method img {
   width: 20px;
   height: 20px;
+  margin-bottom: 5px;
 }
 
 .contact-method p {
@@ -1241,4 +1242,3 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
-
