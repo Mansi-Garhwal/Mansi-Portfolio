@@ -888,16 +888,11 @@ body {
 }
 
 /* --------- b1 (On-field experience) & b2 (Education) --------- */
-.b1 {
-  margin-bottom: 30px;
-
-.b2 {
-  margin-bottom: 30px;
-
 .timeline, .timeline.short {
   list-style: none !important;   /* force no bullets */
   padding-left: 0 !important;    /* remove default UL padding */
   margin-left: 0 !important;
+  margin-bottom: 30px;
 }
 
 /* 2) Increase space between timeline items & between date and body */
@@ -1078,6 +1073,7 @@ body {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
