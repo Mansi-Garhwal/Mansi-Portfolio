@@ -1129,7 +1129,7 @@ body.project-page, .project-page {
 .panel-image {
   width: 100% !important;
   max-width: 100% !important;
-  margin: 0 0 12px 0;
+  margin: 0 0 5px 0;
   box-sizing: border-box;
   display: block;
 }
@@ -1225,13 +1225,13 @@ body.project-page, .project-page {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 10px;
+  gap: 15px;
 }
 
 .contact-method img {
   width: 20px;
   height: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .contact-method p {
@@ -1242,3 +1242,4 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
