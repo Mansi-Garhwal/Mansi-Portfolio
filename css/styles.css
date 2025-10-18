@@ -814,7 +814,7 @@ body {
 
 /* ---------- HOME PAGE ---------- */
 .gallery-container {
-  margin-top: 40px;        /* below top bar */
+  margin-top: 70px;        /* below top bar */
   margin-left: 0 !important;
   width: 100% !important;
   height: auto !important;
@@ -840,7 +840,7 @@ body {
 
 /* ---------- ABOUT PAGE (MOBILE) ---------- */
 .about-grid {
-  margin: 80px 10px 30px 10px;
+  margin: 70px 10px 30px 10px;
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -960,7 +960,7 @@ body {
 
 /* --------- d1full (Trained Under heading) --------- */
 .d1full {
-  margin-bottom: 15px;  /* (12) heading → d1 gap */
+  margin-bottom: 5px;  /* (12) heading → d1 gap */
   margin-top: 30px;
 }
 
@@ -986,8 +986,8 @@ body {
 }
 
 .group-gap {
-  margin-top: 12px !important;
-  margin-bottom: 18px !important;
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
 }
 
 /* small responsive tweak: if timeline text becomes too wide, reduce its max-width */
@@ -1073,6 +1073,7 @@ body {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
