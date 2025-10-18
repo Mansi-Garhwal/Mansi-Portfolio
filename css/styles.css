@@ -316,6 +316,7 @@ footer {
   line-height: 1.6;
   font-weight: 400;
   color: var(--char);
+  max-width: 200px;
 }
 
 /* portrait */
@@ -1243,5 +1244,6 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
