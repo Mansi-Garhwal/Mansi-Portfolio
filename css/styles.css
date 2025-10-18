@@ -1001,24 +1001,80 @@ body {
 }
 
 /* ---------- WORK PAGE ---------- */
-.work-page {
-  margin: 80px 16px 40px 16px;
+/* Grid: 2 columns with 5px gap */
+.project-grid, .work-grid, .projects-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 5px !important;
+  align-items: start;
+  padding: 5px; /* small inside padding */
+  box-sizing: border-box;
 }
 
-.project-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 per row */
-  gap: 12px;
+/* Ensure each project card fits the grid cell and doesn't overflow */
+.project-item, .project-card, .work-item {
+  position: relative;
+  overflow: hidden;
+  margin: 0 !important;
+  border-radius: 6px;
+  background: transparent;
 }
 
-.thumb {
-  height: 160px;
+/* Set a comfortable fixed height for thumbs so grid looks consistent */
+.thumb, .project-thumb, .project-item .thumb {
+  width: 100%;
+  height: 140px;        /* tweak this value if you want taller/shorter tiles */
+  display: block;
+  overflow: hidden;
+}
+  
+.thumb img, .project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.project-title {
-  font-size: 0.85rem;
-  text-align: left;
-  margin-top: 4px;
+/* Remove any overlay used on desktop (hide and disable pointer events) */
+.project-item .overlay, .project-item .project-overlay,
+.project-card .overlay, .project-card .project-overlay,
+.work-item .overlay {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Remove hover-specific transforms / transitions for mobile */
+.project-item:hover, .project-card:hover, .work-item:hover,
+.project-item:active, .project-card:active {
+  transform: none !important;
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove transitions on images/cards to avoid hover animation flicker on touch */
+.project-item, .project-card, .thumb img, .project-thumb img {
+  transition: none !important;
+}
+
+/* Keep titles readable and not overlapping the image */
+.project-title, .project-name, .project-link {
+  display: block;
+  padding: 8px 6px;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  text-align: center; /* change to left if you prefer */
+  color: inherit;
+  background: transparent;
+}
+
+/* If your markup uses links wrapping the entire card, ensure full-tile click area */
+.project-item a, .project-card a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
 }
 
 /* ---------- CONTACT PAGE ---------- */
@@ -1073,6 +1129,7 @@ body {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
