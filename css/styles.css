@@ -145,7 +145,7 @@ html, body {
   transform: scale(1.2);
 }
 
-/* ---------- HORIZONTAL GALLERY (HOME) ---------- */
+/* ----------------------- Home page ----------------------- */
 .gallery-container {
   position: relative;
   height: 100vh;
@@ -197,7 +197,7 @@ html, body {
   -webkit-user-drag: none;
 }
 
-/* ---------- GENERAL (other pages) ---------- */
+/* ----------------------- General page ----------------------- */
 main.page {
   padding: 28px;
   margin-left: calc(var(--sidebar-width) + var(--sidebar-left-offset));
@@ -257,7 +257,7 @@ footer {
   margin-top: 30px;
 }
 
-/* ---------- ABOUT GRID (previous correct version) ---------- */
+/* ----------------------- About page ----------------------- */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;   /* 2-column grid */
@@ -433,7 +433,7 @@ footer {
   margin-bottom: 15px;
 }
 
-/* -------- WORK PAGE -------- */
+/* ----------------------- Work page ----------------------- */
 .work-page {
   margin-left: 350px;
   padding: 37.5px 70px 37.5px 0;
@@ -499,8 +499,7 @@ footer {
   color: var(--accent);
 }
 
-/* ------- PROJECT PAGE: fixes ------- */
-
+/* ----------------------- Project page ----------------------- */
 /* Root variables for consistent spacing */
 :root {
   --sidebar-offset: 350px;     /* same width offset as your sidebar */
@@ -602,8 +601,8 @@ body.project-page .sidebar a:focus, body.project-page .sidebar a:active {
 body.project-page .sidebar a:hover {
   color: var(--hover-color); /* or whatever hover color you want */
 }   
-   
-/* ---------- CONTACT PAGE ---------- */
+
+/* ----------------------- Contact page ----------------------- */
 body.contact-page-body {
   overflow: hidden;  /* no scrollbars */
 }
@@ -812,7 +811,7 @@ body {
   height: 15px;
 }
 
-/* ---------- HOME PAGE ---------- */
+/* ----------------------- Home page ----------------------- */
 .gallery-container {
   margin-top: 70px;        /* below top bar */
   margin-left: 0 !important;
@@ -838,7 +837,7 @@ body {
   object-fit: cover;
 }
 
-/* ---------- ABOUT PAGE (MOBILE) ---------- */
+/* ----------------------- About page ----------------------- */
 .about-grid {
   margin: 70px 10px 30px 10px;
   display: flex;
@@ -1000,8 +999,8 @@ body {
   .c2 .skill-list > div { padding-left: 8px; padding-right: 8px; }
 }
 
-/* ---------- WORK PAGE ---------- */
-/* Container spacing */
+/* ----------------------- Work page ----------------------- */
+
 .work-page, .projects-section, .project-grid, .work-grid {
   margin: 70px 10px 0 10px !important;  /* top, right, bottom, left */
   box-sizing: border-box;
@@ -1069,7 +1068,128 @@ body {
   background: transparent;
 }
 
-/* ---------- CONTACT PAGE ---------- */
+/* ----------------------- Project page ----------------------- */
+
+body.project-page, .project-page {
+  margin: 70px 10px 30px 10px !important; /* top 70px, left/right 10px */
+  box-sizing: border-box;
+  height: auto !important;                  /* allow vertical scrolling on mobile */
+  overflow-x: hidden !important;            /* prevent horizontal scroll */
+}
+
+/* Make the track stack vertically instead of horizontal row */
+.project-track {
+  display: block !important;                 /* remove horizontal flex row */
+  flex-direction: column;                    /* fallback if some rules still apply */
+  gap: 12px;                                 /* gap between panels (tweakable) */
+  padding-left: 0 !important;                /* remove desktop spacer */
+  width: calc(100% - 20px) !important;       /* respect left/right margin (10px each) */
+  max-width: 100%;
+  overflow-x: hidden !important;             /* prevent horizontal scroll on mobile */
+  overflow-y: visible !important;
+  -webkit-overflow-scrolling: touch;
+  touch-action: auto;                        /* allow normal vertical touch scrolling */
+}
+
+/* Text panel becomes a full-width block at top */
+.panel-text {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 12px 6px !important;
+  margin: 0 0 8px 0;
+  box-sizing: border-box;
+  align-items: flex-start !important;
+  text-align: left;                          /* left for better readability on mobile */
+}
+
+/* ensure inner text doesn't exceed content width */
+.panel-text .panel-inner {
+  max-width: 100% !important;
+  padding-right: 6px;
+}
+
+/* Project title/meta/desc spacing */
+.proj-title {
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+}
+
+.proj-meta {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: rgba(0,0,0,0.65);
+}
+
+.proj-desc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Image panels become full-bleed within the page width */
+.panel-image {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 0 12px 0;
+  box-sizing: border-box;
+  display: block;
+}
+
+.panel-image img {
+  width: 100% !important;
+  height: auto !important;                   /* natural height, no forced tall hero */
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+}
+
+/* remove overlays, hover effects and transitions on mobile images */
+.panel-image .overlay, .panel-image .img-overlay,
+.panel-image .project-overlay, .panel-text .overlay {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.panel-image img, .panel-text, .project-track {
+  transition: none !important;
+  transform: none !important;
+}
+
+/* reduce any huge heights that are desktop-specific */
+.panel, .panel-image, .panel-text {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+/* Optional: maintain some whitespace at bottom to avoid content being hidden */
+.project-page::after {
+  content: "";
+  display: block;
+  height: 36px;
+}
+
+/* If gallery.js tries to add horizontal drag, this ensures it cannot push content off-screen:
+   (keeps scrollLeft from doing visible damage) */
+.project-track[style] {
+  overflow-x: hidden !important;
+}
+
+/* small-screen typography tweak */
+@media (max-width: 420px) {
+  .proj-title {
+    font-size: 1.1rem;
+  }
+  
+  .proj-meta  {
+    font-size: 0.85rem;
+  }
+  
+  .proj-desc  {
+    font-size: 0.95rem;
+  }
+}
+
+/* ----------------------- Contact page ----------------------- */
 .contact-page {
   margin-top: 70px; /* push content below logo+hamburger bar */
   margin-left: 0;
@@ -1121,13 +1241,3 @@ body {
   color: var(--char);      /* look like plain text */
 }
 }
-
-
-
-
-
-
-
-
-
-
