@@ -840,10 +840,10 @@ body {
 
 /* ---------- ABOUT PAGE (MOBILE) ---------- */
 .about-grid {
-  margin: 80px 15px 30px 15px;
+  margin: 80px 5px 30px 5px;
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  padding: 5px;
 }
 
 .about-grid .grid-item {
@@ -897,13 +897,13 @@ body {
 /* 2) Increase space between timeline items & between date and body */
 .timeline li {
   display: block;                /* ensures vertical stacking on mobile */
-  margin-bottom: 20px;           /* increase gap between entries (was 15px) */
+  margin-bottom: 15px;           /* increase gap between entries (was 15px) */
   padding-left: 0;               /* safety */
 }
 
 .timeline .t-date {
   display: block;
-  margin-bottom: 8px;            /* larger gap between date line and body (was 3px) */
+  margin-bottom: 3px;            /* larger gap between date line and body (was 3px) */
   font-weight: 600;
 }
 
@@ -931,7 +931,7 @@ body {
 .c2 .skill-list {
   display: flex;
   flex-direction: column;
-  gap: 18px;                     /* increases space between each skill group */
+  gap: 15px;                     /* increases space between each skill group */
   padding: 0;
   margin: 0;
   align-items: center;           /* keep centered like current layout */
@@ -940,7 +940,7 @@ body {
 .c2 .skill-list > div {
   width: 100%;
   max-width: 520px;              /* optional: keeps long lines readable on wide phones */
-  padding: 6px 12px;
+  padding: 5px 10px;
   box-sizing: border-box;
 }
 
@@ -960,6 +960,7 @@ body {
 /* --------- d1full (Trained Under heading) --------- */
 .d1full {
   margin-bottom: 15px;  /* (12) heading → d1 gap */
+  margin-top: 30px;
 }
 
 /* --------- d1 & d2 (Trainers) --------- */
@@ -1071,6 +1072,7 @@ body {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
