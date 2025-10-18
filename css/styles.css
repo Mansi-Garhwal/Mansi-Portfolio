@@ -1081,7 +1081,7 @@ body.project-page, .project-page {
 .project-track {
   display: block !important;                 /* remove horizontal flex row */
   flex-direction: column;                    /* fallback if some rules still apply */
-  gap: 12px;                                 /* gap between panels (tweakable) */
+  gap: 5px;                                 /* gap between panels (tweakable) */
   padding-left: 0 !important;                /* remove desktop spacer */
   width: calc(100% - 20px) !important;       /* respect left/right margin (10px each) */
   max-width: 100%;
@@ -1139,7 +1139,7 @@ body.project-page, .project-page {
   height: auto !important;                   /* natural height, no forced tall hero */
   object-fit: cover;
   display: block;
-  border-radius: 4px;
+  border-radius: 0px;
 }
 
 /* remove overlays, hover effects and transitions on mobile images */
@@ -1241,3 +1241,4 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
