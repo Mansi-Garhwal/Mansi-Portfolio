@@ -840,10 +840,10 @@ body {
 
 /* ---------- ABOUT PAGE (MOBILE) ---------- */
 .about-grid {
-  margin: 80px 5px 30px 5px;
+  margin: 80px 10px 30px 10px;
   display: flex;
   flex-direction: column;
-  padding: 5px;
+  padding: 10px;
 }
 
 .about-grid .grid-item {
@@ -888,6 +888,12 @@ body {
 }
 
 /* --------- b1 (On-field experience) & b2 (Education) --------- */
+.b1 {
+  margin-bottom: 30px;
+
+.b2 {
+  margin-bottom: 30px;
+
 .timeline, .timeline.short {
   list-style: none !important;   /* force no bullets */
   padding-left: 0 !important;    /* remove default UL padding */
@@ -978,7 +984,7 @@ body {
 }
 
 .trainer-bottom {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-size: 0.7rem;
   color: #555;
   text-align: center;
@@ -1072,6 +1078,7 @@ body {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
