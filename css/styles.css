@@ -887,50 +887,31 @@ body {
   margin-bottom: 30px;      /* (4) gap a2 → b1 */
 }
 
-/* --------- b1 (On-field experience) --------- */
-.b1 {
-  margin-bottom: 30px;       /* (7) b1 → b2 gap */
+/* --------- b1 (On-field experience) & b2 (Education) --------- */
+.timeline, .timeline.short {
+  list-style: none !important;   /* force no bullets */
+  padding-left: 0 !important;    /* remove default UL padding */
+  margin-left: 0 !important;
 }
 
-.b1 h3 {
-  margin-bottom: 15px;        /* (5) heading → text gap */
+/* 2) Increase space between timeline items & between date and body */
+.timeline li {
+  display: block;                /* ensures vertical stacking on mobile */
+  margin-bottom: 20px;           /* increase gap between entries (was 15px) */
+  padding-left: 0;               /* safety */
 }
 
-.b1 p {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  margin: 0;
+.timeline .t-date {
+  display: block;
+  margin-bottom: 8px;            /* larger gap between date line and body (was 3px) */
+  font-weight: 600;
 }
 
-.b1 p + p {
-  margin-top: 10px;           /* (6) small gap inside block */
-}
-
-.b1 p.group-gap {
-  margin-top: 10px;           /* (6) larger gap between groups */
-}
-
-/* --------- b2 (Education) --------- */
-.b2 {
-  margin-bottom: 30px;  /* (10) b2 → c1 gap */
-}
-
-.b2 h3 {
-  margin-bottom: 15px;  /* (8) heading → text gap */
-}
-
-.b2 p {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  margin: 0;
-}
-
-.b2 p + p {
-  margin-top: 10px;          /* (9) small gap inside block */
-}
-
-.b2 p.group-gap {
-  margin-top: 10px;   /* (9) larger gap between groups */
+.timeline .t-body {
+  display: block;
+  margin: 0;                     /* keep body compact but separated by t-date margin */
+  line-height: 1.5;
+  text-align: center;            /* keep your current center alignment */
 }
 
 /* --------- c1 (Personal Skills) --------- */
@@ -947,16 +928,33 @@ body {
 }
 
 /* --------- c2 (Digital Skills) --------- */
-.c2 {
-  margin-bottom: 30px;
+.c2 .skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;                     /* increases space between each skill group */
+  padding: 0;
+  margin: 0;
+  align-items: center;           /* keep centered like current layout */
 }
 
-.c2 h3 {
-  margin-bottom: 10px;
+.c2 .skill-list > div {
+  width: 100%;
+  max-width: 520px;              /* optional: keeps long lines readable on wide phones */
+  padding: 6px 12px;
+  box-sizing: border-box;
 }
 
-.c2 p {
-  margin: 5px 0;
+.skill-top {
+  margin-bottom: 3px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.skill-bottom {
+  margin: 0;
+  line-height: 1.45;
+  text-align: center;
+  color: #333;
 }
 
 /* --------- d1full (Trained Under heading) --------- */
@@ -966,11 +964,13 @@ body {
 
 /* --------- d1 & d2 (Trainers) --------- */
 .d1, .d2 {
-  margin-bottom: 10px;  /* (13) trainer blocks gap */
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .trainer-top {
-  margin: 0 0 5px 0;             /* (13) name → address gap = 5px */
+  margin-bottom: 3px;
   font-size: 1rem;
   font-weight: 500;
   text-align: center;
@@ -981,7 +981,22 @@ body {
   font-size: 0.7rem;
   color: #555;
   text-align: center;
-} 
+}
+
+.group-gap {
+  margin-top: 12px !important;
+  margin-bottom: 18px !important;
+}
+
+/* small responsive tweak: if timeline text becomes too wide, reduce its max-width */
+@media (max-width: 420px) {
+  .timeline .t-body, .timeline .t-date {
+    max-width: 100%;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .c2 .skill-list > div { padding-left: 8px; padding-right: 8px; }
+}
 
 /* ---------- WORK PAGE ---------- */
 .work-page {
@@ -1056,5 +1071,6 @@ body {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
