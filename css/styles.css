@@ -969,15 +969,15 @@ body {
   margin-bottom: 10px;  /* (13) trainer blocks gap */
 }
 
-.trainer-top p {
+.trainer-top {
   margin: 0 0 5px 0;             /* (13) name → address gap = 5px */
   font-size: 1rem;
   font-weight: 500;
   text-align: center;
 }
 
-.trainer-bottom p {
-  margin: 0;
+.trainer-bottom {
+  margin-bottom: 10px;
   font-size: 0.7rem;
   color: #555;
   text-align: center;
@@ -1056,4 +1056,5 @@ body {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
