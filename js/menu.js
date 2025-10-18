@@ -1,17 +1,37 @@
-// menu.js
+// js/menu.js  — REPLACE your existing file with this
 document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.createElement("div");
-  toggle.className = "menu-toggle";
-  toggle.innerHTML = "<span></span><span></span><span></span>";
+  const sidebar = document.querySelector('.sidebar');
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelectorAll('.sidebar-nav a');
 
-  const sidebar = document.querySelector(".sidebar");
-  const nav = document.querySelector(".sidebar-nav");
+  if (!sidebar || !hamburger) return;
 
-  if (sidebar && nav) {
-    sidebar.appendChild(toggle);
+  hamburger.addEventListener('click', () => {
+    const isOpen = sidebar.classList.toggle('open');
+    // set aria-expanded on the actual button for accessibility (string 'true'/'false')
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 
-    toggle.addEventListener("click", () => {
-      nav.classList.toggle("open");
+    // lock scrolling on body when menu is open (mobile)
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // Close menu when a nav link is clicked (mobile)
+  navLinks.forEach(a => {
+    a.addEventListener('click', () => {
+      if (sidebar.classList.contains('open')) {
+        sidebar.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
     });
-  }
+  });
+
+  // Optional: close menu on Escape key
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+      sidebar.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
 });
