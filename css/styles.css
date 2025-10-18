@@ -719,7 +719,8 @@ body {
   backdrop-filter: blur(6px);
   display: flex;
   flex-direction: column;
-  z-index: 2000;
+  z-index: 9999 !important;
+  pointer-events: auto; /* ensure clicks register */
   padding: 0 15px;
 }
 
@@ -1242,4 +1243,5 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
