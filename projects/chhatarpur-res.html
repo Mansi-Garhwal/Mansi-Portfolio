@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chhatarpur Residence</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="project-page">
+
+  <!-- SIDEBAR / TOP-BAR (same markup for desktop & mobile) -->
+  <aside class="sidebar" aria-label="Main navigation">
+    <div class="sidebar-top">
+      <a href="../index.html" class="logo">MANSI GARHWAL</a>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </div>
+    
+    <nav class="sidebar-nav" aria-label="Site pages">
+      <a href="../about.html">ABOUT</a>
+      <a href="../work.html">WORK</a>
+      <a href="../contact.html">CONTACT</a>
+    </nav>
+ 
+    <div class="sidebar-footer">
+      <p>Get in touch <span class="arrow">→</span></p>
+      <div class="sidebar-socials">
+        <a href="https://wa.me/917747008825" target="_blank"><img src="../icons/whatsapp.png" alt=""></a>
+        <a href="https://www.linkedin.com/in/mansi-garhwal-911993232" target="_blank"><img src="../icons/linkedin.png" alt=""></a>
+        <a href="https://instagram.com/maaloca_" target="_blank"><img src="../icons/instagram.png" alt=""></a>
+        <a href="https://discord.com/users/maaloca" target="_blank"><img src="../icons/discord.png" alt=""></a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN: project layout (left fixed column + right horizontally scrollable track) -->
+  <main class="project-page">
+  <section class="project-track" id="projectTrack" aria-label="Project media">
+
+    <!-- First column as a scrollable panel -->
+    <div class="panel-text">
+    <div class="panel-inner">
+        <h2 class="proj-title">Chhatarpur Residence</h2>
+        <h4 class="proj-meta">Residencial, 2021, Delhi</h4>
+        <br>
+        <p class="proj-desc">
+          Short project description goes here. Keep it concise...
+        </p>
+    </div>
+    </div>
+
+    <!-- Other image/text panels -->
+    <div class="panel-image">
+      <img src="../chhatarpur-res-images/chhatarpur-res-1.jpg" alt="">
+    </div>
+
+    <div class="panel-image">
+      <img src="../chhatarpur-res-images/chhatarpur-res-2.jpg" alt="">
+    </div>
+
+    <div class="panel-image">
+      <img src="../chhatarpur-res-images/chhatarpur-res-3.jpg" alt="">
+    </div>
+
+    <div class="panel-image">
+      <img src="../chhatarpur-res-images/chhatarpur-res-4.jpg" alt="">
+    </div>
+    
+    <!-- More panels here -->
+  </section>
+</main>
+
+  <!-- Script: pointer drag + inertia for the horizontal track -->
+  <script>
+  (function () {
+    const track = document.getElementById('projectTrack');
+    if (!track) return;
+    // allow native scroll fallback (scrollbar) but add pointer drag + inertia
+    let isDown = false, startX = 0, startScroll = 0;
+    let lastX = 0, lastTime = 0, velocity = 0, raf = null;
+
+    function onDown(e){
+      isDown = true;
+      track.classList.add('dragging');
+      startX = e.clientX ?? e.touches && e.touches[0].clientX;
+      startScroll = track.scrollLeft;
+      lastX = startX;
+      lastTime = performance.now();
+      velocity = 0;
+      if(e.pointerId) track.setPointerCapture && track.setPointerCapture(e.pointerId);
+    }
+    function onMove(e){
+      if(!isDown) return;
+      const x = e.clientX ?? e.touches && e.touches[0].clientX;
+      const dx = x - startX;
+      track.scrollLeft = startScroll - dx;
+      const now = performance.now();
+      const dt = Math.max(now - lastTime, 1);
+      velocity = (lastX - x) / dt; // px per ms
+      lastX = x; lastTime = now;
+    }
+    function onUp(){
+      if(!isDown) return;
+      isDown = false;
+      track.classList.remove('dragging');
+      // inertial animation
+      let v = velocity * 16; // approx px/frame
+      function step(){
+        v *= 0.95;
+        track.scrollLeft += v;
+        if (Math.abs(v) > 0.5) {
+          raf = requestAnimationFrame(step);
+        } else {
+          cancelAnimationFrame(raf);
+          raf = null;
+        }
+      }
+      if (Math.abs(v) > 0.5) raf = requestAnimationFrame(step);
+    }
+
+    // pointer + touch support
+    track.addEventListener('pointerdown', onDown);
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+    // fallback for touch
+    track.addEventListener('touchstart', onDown, {passive:true});
+    track.addEventListener('touchmove', onMove, {passive:true});
+    track.addEventListener('touchend', onUp);
+
+    // support horizontal wheel (if user uses trackpad/horizontal wheel)
+    track.addEventListener('wheel', (e) => {
+      // only apply horizontal wheel (deltaX significant) or if user holds shift
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || e.shiftKey) {
+        e.preventDefault();
+        track.scrollLeft += e.deltaX || e.deltaY;
+      }
+    }, {passive:false});
+
+  })();
+  </script>
+
+  <script src="js/gallery.js"></script>
+  <script src="js/menu.js"></script>
+
+</body>
+</html>
