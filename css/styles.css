@@ -119,29 +119,6 @@ html, body {
   color: var(--accent);
 }
 
-.project-links {
-  display: none; /* hidden by default */
-}  
-
-body.project-page .project-links {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin: 8px 0; /* small spacing between WORK and CONTACT */
-}
-/* make project-links' anchor look like the other nav links */
-body.project-page .project-links a {
-  font-size: 14px;
-  color: var(--char);
-  text-decoration: none;
-  padding: 1.5px 0;
-  letter-spacing: 0.5px;
-}
-
-body.project-page .project-links a:hover {
-  color: var(--accent);
-}
-
 /* -- Sidebar Footer -- */
 .sidebar-footer {
   margin-top: auto; /* pushes footer to bottom */
@@ -1275,6 +1252,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
