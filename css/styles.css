@@ -75,7 +75,7 @@ html, body {
 }
 
 .sidebar-top .logo {
-  margin-bottom: 6px; /* optional fine tuning */
+  margin-bottom: 3px; /* optional fine tuning */
 }
    
 .sidebar .logo {
@@ -93,7 +93,6 @@ html, body {
   font-size: 0.8rem;
   color: #666;
   letter-spacing: 0.5px;
-  margin-top: 1.5px;
   line-height: 1;
   width: 100%;             /* stretch full width of logo container */
   text-align: justify;     /* evenly stretch the text across width */
@@ -1255,6 +1254,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
