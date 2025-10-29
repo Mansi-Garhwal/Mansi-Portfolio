@@ -178,7 +178,7 @@ html, body {
 }
 
 .gallery-track {
-  padding-left: 350px;
+  padding-left: 380px;
   display: flex;
   align-items: center;
   gap: 3px; /* spacing between images */
@@ -283,7 +283,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;   /* 2-column grid */
   grid-auto-rows: auto;
-  margin-left: 350px;               /* space for sidebar */
+  margin-left: 380px;               /* space for sidebar */
   padding: 37.5px 50px 37.5px 0;    /* top, right, bottom, left */
   row-gap: 60px;                    /* vertical gap between rows */
   column-gap: 30px;                 /* horizontal gap between columns */
@@ -337,6 +337,7 @@ footer {
   line-height: 1.6;
   font-weight: 400;
   color: var(--char);
+  margin-left: 10px;
 }
 
 /* portrait */
@@ -456,7 +457,7 @@ footer {
 
 /* ----------------------- Work page ----------------------- */
 .work-page {
-  margin-left: 350px;
+  margin-left: 380px;
   padding: 37.5px 70px 37.5px 0;
   box-sizing: border-box;
 }
@@ -523,7 +524,7 @@ footer {
 /* ----------------------- Project page ----------------------- */
 /* Root variables for consistent spacing */
 :root {
-  --sidebar-offset: 350px;     /* same width offset as your sidebar */
+  --sidebar-offset: 380px;     /* same width offset as your sidebar */
   --gallery-height: 280px;     /* height of bottom carousel */
   --gallery-offset: 15px 0;
 }
@@ -539,7 +540,7 @@ footer {
 }
 
 .class, .project-track {
-  padding-left: 350px;
+  padding-left: 380px;
   display: flex;
   align-items: center;
   gap: 10px; /* spacing between images */
@@ -629,7 +630,7 @@ body.contact-page-body {
 }
 
 .contact-page {
-  margin-left: 350px;     /* left column starts 230px from left */
+  margin-left: 380px;     /* left column starts 230px from left */
   height: 100vh;          /* full viewport height */
   display: flex;
   align-items: center;    /* vertical centering */
@@ -1264,6 +1265,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
