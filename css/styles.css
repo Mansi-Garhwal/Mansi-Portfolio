@@ -7,7 +7,7 @@
   --accent: #f3b54a;
   --char: #222;
   --sidebar-width: 300px;
-  --sidebar-left-offset: 20px;
+  --sidebar-left-offset: 15px;
 }
 
 /* Reset */
@@ -57,7 +57,7 @@ html, body {
   height: 100%;
   background: rgba(255,255,255,0.5); /* highly translucent */
   backdrop-filter: blur(8px);
-  padding: 30px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -1255,6 +1255,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
