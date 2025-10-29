@@ -54,7 +54,7 @@ html, body {
   top: 0;
   left: var(--sidebar-left-offset);
   width: var(--sidebar-width);
-  height: 100%;
+  height: 100vh;
   background: rgba(255,255,255,0.5); /* highly translucent */
   backdrop-filter: blur(8px);
   padding: 30px;
@@ -79,6 +79,11 @@ html, body {
 }
    
 .sidebar .logo {
+  display: block;                   /* becomes a block-level element so width:100% works */
+  width: 100%;
+  white-space: nowrap;              /* force single-line logo */
+  overflow: hidden;                 /* protect against overflow if sidebar narrower */
+  text-overflow: clip;              /* or ellipsis if you prefer: text-overflow: ellipsis; */
   font-family: 'Playfair Display', serif;
   font-size: 1.75rem;
   font-weight: 600;
@@ -89,13 +94,14 @@ html, body {
 }
 
 .sidebar-top .tagline {
+  display: block;
   font-family: 'Poppins', sans-serif;
   font-size: 0.8rem;
   color: #666;
   letter-spacing: 0.7px;
   line-height: 1;
   width: 100%;             /* stretch full width of logo container */
-  text-align: justify;     /* evenly stretch the text across width */
+  text-align: left;     /* evenly stretch the text across width */
   text-justify: inter-word;
 }
   
@@ -1259,6 +1265,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
