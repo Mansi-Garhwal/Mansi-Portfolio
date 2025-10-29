@@ -96,14 +96,15 @@ html, body {
 .sidebar-top .tagline {
   display: block;
   font-family: 'Poppins', sans-serif;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #666;
   letter-spacing: 0.7px;
   line-height: 1;
   width: 100%;             /* stretch full width of logo container */
-  text-align: left;     /* evenly stretch the text across width */
+  text-align: justify;     /* evenly stretch the text across width */
+  text-justify: inter-word;
 }
-  
+
 .sidebar-nav {
   display: flex;
   flex-direction: column;
@@ -1264,6 +1265,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
