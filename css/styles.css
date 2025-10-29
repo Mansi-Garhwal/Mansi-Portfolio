@@ -6,7 +6,7 @@
   --gold: #B78F2C;
   --accent: #f3b54a;
   --char: #222;
-  --sidebar-width: 300px;
+  --sidebar-width: 330px;
   --sidebar-left-offset: 30px;
 }
 
@@ -1255,6 +1255,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
