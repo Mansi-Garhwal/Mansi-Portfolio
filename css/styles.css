@@ -181,7 +181,7 @@ html, body {
   padding-left: 380px;
   display: flex;
   align-items: center;
-  gap: 5px; /* spacing between images */
+  gap: 7px; /* spacing between images */
   height: 100%;
   will-change: transform;
   transform: translate3d(0,0,0);
@@ -1265,6 +1265,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
