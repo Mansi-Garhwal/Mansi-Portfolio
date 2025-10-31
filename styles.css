@@ -77,7 +77,7 @@ html, body {
 
 /* Logo + Tagline share same width & alignment */
 .sidebar-top .logo, .sidebar-top .tagline {
-  display: block;
+  display: inline-block;
   width: 290px;               /* ensures equal alignment width */
   max-width: 100%;
   box-sizing: border-box;
@@ -86,14 +86,12 @@ html, body {
   white-space: normal;       /* allow normal wrapping if needed on tiny screens */
 }
 
-.sidebar .logo {
+.sidebar-top .logo {
   display: inline-block;
   text-align: justify;
   -webkit-text-size-adjust: none;
   text-justify: distribute;
   -webkit-text-justify: inter-character;
-  width: 100%;
-  white-space: nowrap; 
   text-overflow: clip;
   font-family: 'Playfair Display', serif;
   font-size: 1.75rem;
@@ -1290,6 +1288,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
