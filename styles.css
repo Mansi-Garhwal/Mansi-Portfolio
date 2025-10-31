@@ -79,7 +79,7 @@ html, body {
 /* Logo + Tagline share same width & alignment */
 .sidebar-top .logo, .sidebar-top .tagline {
   display: block;
-  width: 260px;               /* ensures equal alignment width */
+  width: 290px;               /* ensures equal alignment width */
   max-width: 100%;
   box-sizing: border-box;
   margin-left: auto;         /* center horizontally inside the sidebar */
@@ -88,11 +88,6 @@ html, body {
   letter-spacing: normal !important; /* remove any forced letter-spacing */
   word-spacing: normal !important;   /* ensure words use normal spacing */
   white-space: normal;       /* allow normal wrapping if needed on tiny screens */
-}
-
-.sidebar-top::before, .sidebar-top::after {
-  content: none !important;
-  display: none !important;
 }
 
 .sidebar .logo {
@@ -1300,6 +1295,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
