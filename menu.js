@@ -49,4 +49,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // if click is directly on the aside (not on inner nav/footer), close
     if (e.target === sidebar && sidebar.classList.contains('open')) openMenu(false);
   });
+
+  // Highlight current page link in sidebar
+  const currentPath = window.location.pathname.split("/").pop(); // e.g., 'about.html'
+  document.querySelectorAll(".sidebar-nav a").forEach(link => {
+    const href = link.getAttribute("href");
+    if (href && currentPath.endsWith(href)) {
+      link.classList.add("active");
+    }
+  });
+
 });
+
