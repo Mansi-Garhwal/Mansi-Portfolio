@@ -66,46 +66,31 @@ html, body {
   box-shadow: none;
 }
 
+/* Minimal — ONLY align logo & tagline to same 260px block (no font changes) */
 .sidebar-top {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: 6px;                      /* small gap between logo and tagline */
+  align-items: center;    /* centers the fixed-width block inside sidebar */
+  gap: 4px;
   box-sizing: border-box;
-  width: 100%;
 }
-  
-/* Logo + Tagline share same width & alignment */
+
+/* Force both elements to occupy the exact same visual block.
+   These rules do NOT set font-family, font-size, color, weight, or letter-spacing. */
 .sidebar-top .logo, .sidebar-top .tagline {
-  display: inline-block;
-  width: 290px;                  /* ensures equal alignment width */
-  max-width: 100%;
+  display: block;
+  width: 260px !important;    /* exact width you requested */
+  max-width: 100%;            /* safe on very small screens */
+  margin: 0;                  /* parent centers the block */
   box-sizing: border-box;
-  margin-left: auto;             /* center horizontally inside the sidebar */
-  margin-right: auto;
-  white-space: normal;           /* allow normal wrapping if needed on tiny screens */
+  text-align: center;         /* centers the text inside the 260px block */
 }
 
-.sidebar-top .logo {
-  display: inline-block;
-  text-align: justify;
-  -webkit-text-size-adjust: none;
-  text-justify: distribute;
-  -webkit-text-justify: inter-character;
-  text-overflow: clip;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: var(--char);
-  text-decoration: none;
-}
-
-.sidebar-top .tagline {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  color: #666;
-  line-height: 1;
-  width: 100%;
+/* Remove any pseudo-element divider without touching type */
+.sidebar-top::before, .sidebar-top::after {
+  content: none !important;
+  display: none !important;
+  border: 0 !important;
 }
 
 .sidebar-nav {
@@ -1288,6 +1273,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
