@@ -75,15 +75,38 @@ html, body {
   padding-left: 10px;        /* align with rest of sidebar content */
   padding-right: 10px;
   box-sizing: border-box;
+  width: 100%;
 }
 
 /* Logo + Tagline share same width & alignment */
 .sidebar-top .logo, .sidebar-top .tagline {
   display: block;
   width: 100%;               /* ensures equal alignment width */
-  text-align: left;          /* keeps text left aligned */
+  text-align: center;          /* keeps text center aligned */
   margin: 0;
   line-height: 1.1;
+}
+
+.sidebar .logo {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--char);
+  text-decoration: none;
+  leter-spacing: 2px;
+}
+
+.sidebar-top .tagline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  color: #666;
+  letter-spacing: 0.7px;
+  line-height: 1;
+  width: 100%;
 }
 
 .sidebar-nav {
@@ -1266,6 +1289,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
