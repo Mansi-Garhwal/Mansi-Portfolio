@@ -75,7 +75,7 @@ html, body {
   padding-left: 10px;        /* align with rest of sidebar content */
   padding-right: 10px;
   box-sizing: border-box;
-  width: 100%;
+  width: 260px;
 }
 
 /* Logo + Tagline share same width & alignment */
@@ -106,7 +106,7 @@ html, body {
   color: #666;
   letter-spacing: 0.7px;
   line-height: 1;
-  width: 100%;
+  width: 260px;
 }
 
 .sidebar-nav {
@@ -1289,6 +1289,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
