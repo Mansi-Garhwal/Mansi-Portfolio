@@ -98,7 +98,7 @@ html, body {
   font-weight: 600;
   color: var(--char);
   text-decoration: none;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
 .sidebar-top .tagline {
@@ -108,7 +108,6 @@ html, body {
   line-height: 1;
   width: 100%;
   text-align: center;
-  letter-spacing: 2px;
 }
 
 .sidebar-nav {
@@ -1291,6 +1290,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
