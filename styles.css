@@ -106,7 +106,10 @@ html, body {
   font-size: 1rem;
   color: #666;
   width: 100%;
-  text-align: center;
+  text-align: justify;
+  text-justify: inter-word;
+  letter-spacing: 0.7px;
+  line-height: 1.5;
 }
 
 .sidebar-nav {
@@ -1289,6 +1292,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
