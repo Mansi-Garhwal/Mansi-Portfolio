@@ -66,30 +66,22 @@ html, body {
   box-shadow: none(0,0,0,0.06);
 }
 
-/* Remove any line/divider if it exists between logo & tagline */
-.sidebar-top::after, .sidebar-top::before {
-  content: none !important;
-  display: none !important;
-  border: 0 !important;
-}
-
-/* Common alignment for both desktop & mobile */
 .sidebar-top {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;   /* left align like Platform21 */
+  align-items: flex-start;   /* keeps both left aligned */
   justify-content: flex-start;
-  gap: 4px;                  /* small gap between logo & tagline */
-  padding-left: 10px;        /* same left margin as nav links */
+  gap: 3px;                  /* small gap between logo and tagline */
+  padding-left: 10px;        /* align with rest of sidebar content */
   padding-right: 10px;
   box-sizing: border-box;
 }
 
-/* Keep logo & tagline widths aligned */
+/* Logo + Tagline share same width & alignment */
 .sidebar-top .logo, .sidebar-top .tagline {
   display: block;
-  width: 100%;               /* equal width */
-  text-align: left;          /* left aligned text */
+  width: 100%;               /* ensures equal alignment width */
+  text-align: left;          /* keeps text left aligned */
   margin: 0;
   line-height: 1.1;
 }
@@ -1274,6 +1266,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
