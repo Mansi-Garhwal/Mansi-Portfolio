@@ -753,21 +753,35 @@ body {
 
 .sidebar-top {
   display: flex;
-  justify-content: space-between; /* logo left, hamburger right */
-  align-items: center;
-  width: 100%;
-  height: 60px;
+  flex-direction: column;
+  align-items: flex-start;     /* left align both logo & tagline */
+  padding-left: 10px;          /* same left inset as your nav links */
+  padding-right: 10px;
+  gap: 4px;                    /* small vertical space between logo & tagline */
+  box-sizing: border-box;
 }
 
-.sidebar .logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
+.sidebar-top .logo,
+.sidebar-top .tagline {
+  display: block;
+  width: 100%;                 /* ensures both share same width */
+  text-align: left;            /* left-aligned like Platform21 */
+  margin: 0;
+  line-height: 1.1;
+}
+
+.sidebar-top .logo {
+  font-size: 1.05rem;          /* same visual weight as Platform21’s wordmark */
   font-weight: 600;
-  text-decoration: none;
-  color: var(--char);
-  letter-spacing: 2px;
+  letter-spacing: 0.02em;
 }
 
+.sidebar-top .tagline {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgba(0,0,0,0.65);     /* subtle grey tone like reference site */
+}
+  
 .hamburger {
   display: block;
   font-size: 1.2rem;
@@ -1270,3 +1284,4 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
