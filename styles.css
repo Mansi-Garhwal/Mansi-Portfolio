@@ -79,7 +79,7 @@ html, body {
 /* Logo + Tagline share same width & alignment */
 .sidebar-top .logo, .sidebar-top .tagline {
   display: block;
-  width: 220px;               /* ensures equal alignment width */
+  width: 260px;               /* ensures equal alignment width */
   max-width: 100%;
   text-align: center;          /* keeps text center aligned */
   box-sizing: border-box;
@@ -98,7 +98,6 @@ html, body {
   font-weight: 600;
   color: var(--char);
   text-decoration: none;
-  leter-spacing: 2px;
 }
 
 .sidebar-top .tagline {
@@ -1292,6 +1291,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
