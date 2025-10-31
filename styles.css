@@ -73,7 +73,7 @@ html, body {
   justify-content: flex-start;
   gap: 6px;                  /* small gap between logo and tagline */
   box-sizing: border-box;
-  width: 290px;
+  width: 320px;
 }
 
 /* Logo + Tagline share same width & alignment */
@@ -104,7 +104,7 @@ html, body {
   color: #666;
   letter-spacing: 0.7px;
   line-height: 1;
-  width: 290px;
+  width: 320px;
   text-align: justify;
   text-justify: inter-word;
 }
@@ -1289,6 +1289,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
