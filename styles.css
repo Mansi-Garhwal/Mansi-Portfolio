@@ -106,9 +106,8 @@ html, body {
   font-size: 1rem;
   color: #666;
   width: 100%;
-  text-align: justify;
-  text-justify: inter-word;
-  letter-spacing: 0.7px;
+  text-align: center;
+  letter-spacing: 0.9px;
   line-height: 1;
 }
 
@@ -1292,6 +1291,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
