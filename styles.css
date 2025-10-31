@@ -60,7 +60,7 @@ html, body {
   padding: 30px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 30px;
   z-index: 1500;
   border-radius: 0px;
   box-shadow: none(0,0,0,0.06);
@@ -108,9 +108,8 @@ html, body {
 
 .sidebar-top .tagline {
   font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #666;
-  letter-spacing: 0.7px;
   line-height: 1;
   width: 100%;
 }
@@ -1295,6 +1294,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
