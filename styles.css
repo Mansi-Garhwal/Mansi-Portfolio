@@ -72,8 +72,6 @@ html, body {
   align-items: flex-start;   /* keeps both left aligned */
   justify-content: flex-start;
   gap: 6px;                  /* small gap between logo and tagline */
-  padding-left: 10px;        /* align with rest of sidebar content */
-  padding-right: 10px;
   box-sizing: border-box;
   width: 290px;
 }
@@ -81,7 +79,7 @@ html, body {
 /* Logo + Tagline share same width & alignment */
 .sidebar-top .logo, .sidebar-top .tagline {
   display: block;
-  width: 100%;               /* ensures equal alignment width */
+  width: 320px;               /* ensures equal alignment width */
   text-align: center;          /* keeps text center aligned */
   margin: 0;
   line-height: 1.1;
@@ -107,6 +105,8 @@ html, body {
   letter-spacing: 0.7px;
   line-height: 1;
   width: 290px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .sidebar-nav {
@@ -1289,6 +1289,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
