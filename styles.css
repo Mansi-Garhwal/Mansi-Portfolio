@@ -66,42 +66,46 @@ html, body {
   box-shadow: none;
 }
 
-/* ===== Option A: exact 260px block, centered, preserve original font/size/spacing ===== */
 .sidebar-top {
   display: flex;
   flex-direction: column;
-  align-items: center;   /* centers the 260px block horizontally */
   justify-content: flex-start;
-  gap: 6px;
+  gap: 6px;                      /* small gap between logo and tagline */
   box-sizing: border-box;
   width: 100%;
-  padding-left: 0;       /* adjust if you want inset */
 }
-
-/* Force both to be same 260px block and preserve typography */
+  
+/* Logo + Tagline share same width & alignment */
 .sidebar-top .logo, .sidebar-top .tagline {
-  display: block;            /* ensure width applies */
-  width: 260px;              /* required fixed width */
-  max-width: 100%;           /* safe on very small screens */
-  margin: 0;                 /* remove auto margins since parent centers */
+  display: inline-block;
+  width: 290px;                  /* ensures equal alignment width */
+  max-width: 100%;
   box-sizing: border-box;
-  text-align: center;        /* center the text inside the 260px block */
-  letter-spacing: normal !important;
-  word-spacing: normal !important;
-  white-space: normal;
+  margin-left: auto;             /* center horizontally inside the sidebar */
+  margin-right: auto;
+  white-space: normal;           /* allow normal wrapping if needed on tiny screens */
 }
 
-/* Remove any previous text-justify / pseudo-element hacks that cause odd spacing */
-.sidebar-top .logo, .sidebar-top .tagline {
-  text-align: center;            /* explicit: keep original spacing, centered */
-  text-justify: initial !important;
-  -webkit-text-justify: initial !important;
+.sidebar-top .logo {
+  display: inline-block;
+  text-align: justify;
+  -webkit-text-size-adjust: none;
+  text-justify: distribute;
+  -webkit-text-justify: inter-character;
+  text-overflow: clip;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--char);
+  text-decoration: none;
 }
 
-/* If any pseudo elements were creating dividers, remove them */
-.sidebar-top::before, .sidebar-top::after {
-  content: none !important;
-  display: none !important;
+.sidebar-top .tagline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #666;
+  line-height: 1;
+  width: 100%;
 }
 
 .sidebar-nav {
@@ -1284,6 +1288,7 @@ body.project-page, .project-page {
   color: var(--char);      /* look like plain text */
 }
 }
+
 
 
 
